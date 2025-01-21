@@ -18,6 +18,7 @@ const cron = require("node-cron");
 let ALLOWED_ORIGINS = [
   "https://fortivault.io",
   "https://www.fortivault.io",
+  "https://fortivault.vercel.app",
   "http://localhost:3000",
   "http://localhost:3001",
   "http://localhost:3002",
