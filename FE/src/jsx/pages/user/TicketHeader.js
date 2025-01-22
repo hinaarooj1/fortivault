@@ -4,7 +4,7 @@ import './AllTicket.css'; // Import your custom CSS
 import profile from "../../../assets/images/7309681.jpg";
 import adminDp from "../../../assets/admin.jpg";
 
-import LogoNew from '../../../assets/images/logo.png'
+import LogoNew from '../../../assets/newlogo/logo.png'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Dropdown, Spinner } from 'react-bootstrap';
 import { useAuthUser } from 'react-auth-kit';
@@ -23,7 +23,7 @@ const TicketHeader = (props) => {
                                     <nav className="menu-nav">
                                         <div className="logo">
                                             <Link to="/">
-                                                <img src={LogoNew} className='loas' alt="IKO" />
+                                                <img src={LogoNew} className='loas' style={{ width: "80px" }} alt="IKO" />
                                             </Link>
                                         </div>
                                         <div className="navbar-wrap main-menu m-auto d-none d-lg-flex">
