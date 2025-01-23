@@ -903,27 +903,7 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="ft-col-3 col-lg-4" >
-                    <div className="widget widget_mc4wp_form_widget" >
-                      <div className="widget-content" >
-                        <h4 className="widget-title">Sign Up for Email Updates</h4>
-                        {/* Mailchimp for WordPress v4.9.12 - https://wordpress.org/plugins/mailchimp-for-wp/ */}
-                        <form id="mc4wp-form-1" className="mc4wp-form mc4wp-form-2016" method="post" data-id={2016} data-name="Marinio">
-                          <div className="mc4wp-form-fields" >
-                            <div className="theme-mailchimp" >
-                              <div className="theme-mailchimp-fields" >
-                                <input type="email" name="email" placeholder="Your e-mail adress" required />
-                                <input type="submit" defaultValue="Subscribe" />
-                              </div>
-                              <p>Sign up with your email address to receive news and updates</p>
-                            </div>
-                          </div><label style={{ display: 'none !important' }}>Leave this field empty if you're
-                            human: <input type="text" name="_mc4wp_honeypot" tabIndex={-1} autoComplete="off" /></label><input type="hidden" name="_mc4wp_timestamp" defaultValue={1737494502} /><input type="hidden" name="_mc4wp_form_id" defaultValue={2016} /><input type="hidden" name="_mc4wp_form_element_id" defaultValue="mc4wp-form-1" />
-                          <div className="mc4wp-response" />
-                        </form>{/* / Mailchimp for WordPress Plugin */}
-                      </div>
-                    </div>
-                  </div>
+
                 </div>
               </div>
               <div className="footer-bottom" >
@@ -931,16 +911,7 @@ const Home = () => {
                   <p className="footer-copyright">Copyright ©2025 Toka. All rights reserved.
                   </p>{/* .footer-copyright */}
                 </div>{/* .footer-credits */}
-                <nav className="footer-menu-wrapper" aria-label="Footer" role="navigation">
-                  <ul className="footer-menu">
-                    <li id="menu-item-2007" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2007"><a href="/">Home</a></li>
-                    <li id="menu-item-2005" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2005"><a href="https://toka.peerduck.com/about-us/" >About Us</a></li>
-                    <li id="menu-item-2011" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2011"><a href="https://toka.peerduck.com/our-team/" >Our Team</a></li>
-                    <li id="menu-item-2010" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2010"><a href="https://toka.peerduck.com/shop/" >Shop</a></li>
-                    <li id="menu-item-2012" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2012"><a href="https://toka.peerduck.com/blog-2-columns-with-sidebar/" >Blog</a></li>
-                    <li id="menu-item-2008" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2008"><a href="https://toka.peerduck.com/contact-us/" >Contact Us</a></li>
-                  </ul>
-                </nav>
+
               </div>{/* .footer-bottom  */}
             </div>{/* .footer-inner */}
           </div>

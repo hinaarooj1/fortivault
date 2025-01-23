@@ -340,7 +340,7 @@ const Dashboard = () => {
                   zIndex: 999999,
                 }}
               ></div>
-              <div className="relative overflow-hidden">
+              {/* <div className="relative overflow-hidden">
                 <div className="flex flex-col gap-6">
                   <div className="border-muted-200 dark:border-muted-700 dark:bg-muted-800 relative w-full border bg-white transition-all duration-300 rounded-md p-6">
                     <div className="xs:divide-y divide-muted-200 dark:divide-muted-700 flex w-full flex-col items-center sm:flex-row sm:divide-x">
@@ -366,7 +366,7 @@ const Dashboard = () => {
                             </g>
                           </svg>
                           <h4 className="text-muted-800 dark:text-muted-100 font-sans text-xl font-semibold">
-                            {/* <div>50</div> */}
+                             
                             {isLoading ? (
                               <div>
                                 <div className="nui-placeload animate-nui-placeload h-4 w-8 rounded mx-auto"></div>
@@ -465,7 +465,7 @@ const Dashboard = () => {
                             </g>
                           </svg>
                           <h4 className="text-muted-800 dark:text-muted-100 font-sans text-xl font-semibold">
-                            {/* <div>51</div> */}
+                            
                           </h4>
                           <p className="text-muted-400 font-sans text-sm">
                             Completed Tickets
@@ -475,7 +475,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <br />
               {/* <button onClick={onOpenModal} className="btn btn-primary">
                 Add User
