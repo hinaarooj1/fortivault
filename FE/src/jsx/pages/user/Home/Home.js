@@ -25,6 +25,11 @@ const Home = () => {
   const sliderRef = useRef(null);
   const [openAccordion, setOpenAccordion] = useState(null);
 
+  const [activeTab, setActiveTab] = useState(null);
+
+  const toggleTab = (tabIndex) => {
+    setActiveTab((prev) => (prev === tabIndex ? null : tabIndex));
+  };
 
 
 
@@ -87,6 +92,44 @@ const Home = () => {
 
     // header.classList.toggle("sticky-menu", window.scrollY > 150);
   });
+  const faqData = [
+    {
+      id: 1,
+      question: "What is FortiVault Wallet?",
+      answer:
+        "FortiVault Wallet is a secure, easy-to-use platform for managing, sending, and receiving cryptocurrencies. It supports multiple tokens and offers advanced security features to protect your digital assets.",
+    },
+    {
+      id: 2,
+      question: "How do I get started?",
+      answer:
+        "Simply register online or download the Windows app, create an account, and follow the setup instructions. You'll be able to securely store, send, and receive a wide range of cryptocurrencies in just a few steps.",
+    },
+    {
+      id: 3,
+      question: "Is my crypto safe in FortiVault Wallet?",
+      answer:
+        "Yes, your crypto is protected with top-level encryption, multi-layer authentication, and cold storage solutions, ensuring maximum security for your digital assets.",
+    },
+    {
+      id: 4,
+      question: "What crypto is supported?",
+      answer:
+        "FortiVault Wallet supports a wide variety of cryptocurrencies, including Bitcoin, Ethereum, and many popular altcoins. Check our supported tokens list for the full range of assets you can store and manage.",
+    },
+    {
+      id: 5,
+      question: "Can I stake my crypto in FortiVault Wallet?",
+      answer:
+        "Yes, FortiVault Wallet offers a simple staking option that allows you to earn rewards by staking your tokens directly within the app. Just choose your desired crypto, and start staking to maximize your returns.",
+    },
+    {
+      id: 6,
+      question: "Can I connect my bank account or credit card to FortiVault Wallet?",
+      answer:
+        "Yes, FortiVault Wallet allows you to link your bank account or credit card for easy purchasing and transferring of cryptocurrencies. Enjoy a simple, secure way to fund your wallet and manage your assets.",
+    },
+  ];
 
   return (
     <div className="hompg homepaag">
@@ -184,7 +227,7 @@ const Home = () => {
                                   </div>
                                   <div className="elementor-element elementor-element-cbf5029 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="cbf5029" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      A trusted platform built to streamline — your cryptocurrency journey
+                                      A trusted platform built to streamline   your cryptocurrency journey
                                     </div>
                                   </div>
                                   <div className="elementor-element elementor-element-2304308 elementor-widget elementor-widget-text-editor" data-id={2304308} data-element_type="widget" data-widget_type="text-editor.default" >
@@ -435,7 +478,7 @@ const Home = () => {
                                   </div>
                                   <div className="elementor-element elementor-element-1e475b5 elementor-widget elementor-widget-text-editor" data-id="1e475b5" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      Manage, trade, stake, and grow your crypto portfolio—all in one secure and intuitive platform. Explore the future of finance with confidence.
+                                      Manage, trade, stake, and grow your crypto portfolio all in one secure and intuitive platform. Explore the future of finance with confidence.
                                     </div>
                                   </div>
 
@@ -514,80 +557,45 @@ const Home = () => {
                                   <div className="elementor-element elementor-element-615039f elementor-widget elementor-widget-toggle" data-id="615039f" data-element_type="widget" data-widget_type="toggle.default" >
                                     <div className="elementor-widget-container" >
                                       <style dangerouslySetInnerHTML={{ __html: "\n                                                                    /*! elementor - v3.21.0 - 24-04-2024 */\n                                                                    .elementor-toggle {\n                                                                        text-align: start\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title {\n                                                                        font-weight: 700;\n                                                                        line-height: 1;\n                                                                        margin: 0;\n                                                                        padding: 15px;\n                                                                        border-bottom: 1px solid #d5d8dc;\n                                                                        cursor: pointer;\n                                                                        outline: none\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title .elementor-toggle-icon {\n                                                                        display: inline-block;\n                                                                        width: 1em\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title .elementor-toggle-icon svg {\n                                                                        margin-inline-start: -5px;\n                                                                        width: 1em;\n                                                                        height: 1em\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title .elementor-toggle-icon.elementor-toggle-icon-right {\n                                                                        float: right;\n                                                                        text-align: right\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title .elementor-toggle-icon.elementor-toggle-icon-left {\n                                                                        float: left;\n                                                                        text-align: left\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title .elementor-toggle-icon .elementor-toggle-icon-closed {\n                                                                        display: block\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title .elementor-toggle-icon .elementor-toggle-icon-opened {\n                                                                        display: none\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title.elementor-active {\n                                                                        border-bottom: none\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title.elementor-active .elementor-toggle-icon-closed {\n                                                                        display: none\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title.elementor-active .elementor-toggle-icon-opened {\n                                                                        display: block\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-content {\n                                                                        padding: 15px;\n                                                                        border-bottom: 1px solid #d5d8dc;\n                                                                        display: none\n                                                                    }\n\n                                                                    @media (max-width:767px) {\n                                                                        .elementor-toggle .elementor-tab-title {\n                                                                            padding: 12px\n                                                                        }\n\n                                                                        .elementor-toggle .elementor-tab-content {\n                                                                            padding: 12px 10px\n                                                                        }\n                                                                    }\n\n                                                                    .e-con-inner>.elementor-widget-toggle,\n                                                                    .e-con>.elementor-widget-toggle {\n                                                                        width: var(--container-widget-width);\n                                                                        --flex-grow: var(--container-widget-flex-grow)\n                                                                    }\n                                                                " }} />
-                                      <div className="elementor-toggle" >
-                                        <div className="elementor-toggle-item" >
-                                          <div id="elementor-tab-title-1021" className="elementor-tab-title" data-tab={1} role="button" aria-controls="elementor-tab-content-1021" aria-expanded="false" >
-                                            <span className="elementor-toggle-icon elementor-toggle-icon-right" aria-hidden="true">
-                                              <span className="elementor-toggle-icon-closed"><i className="fas fa-chevron-down" /></span>
-                                              <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-chevron-up" /></span>
-                                            </span>
-                                            <a className="elementor-toggle-title" tabIndex={0}>What is FortiVault Wallet?</a>
+                                      <div className="elementor-toggle">
+                                        {faqData.map((item) => (
+                                          <div
+                                            className="elementor-toggle-item"
+                                            key={item.id}
+                                            onClick={() => toggleTab(item.id)}
+                                          >
+                                            <div
+                                              id={`elementor-tab-title-${item.id}`}
+                                              className="elementor-tab-title"
+                                              data-tab={item.id}
+                                              role="button"
+                                              aria-controls={`elementor-tab-content-${item.id}`}
+                                              aria-expanded={activeTab === item.id}
+                                            >
+                                              <span className="elementor-toggle-icon elementor-toggle-icon-right" aria-hidden="true">
+                                                <span className={`elementor-toggle-icon-closed ${activeTab === item.id ? "rotatef" : "rotateaf"}`}>
+                                                  <i className="fas fa-chevron-down" />
+                                                </span>
+                                                {/* <span className={`elementor-toggle-icon-opened ${activeTab === item.id ? "" : "hidden"}`}>
+                                                  <i className="fas fa-chevron-up" />
+                                                </span> */}
+                                              </span>
+                                              <a className="elementor-toggle-title" tabIndex={0}>
+                                                {item.question}
+                                              </a>
+                                            </div>
+                                            <div
+                                              id={`elementor-tab-content-${item.id}`}
+                                              className={`elementor-tab-content elementor-clearfix ${activeTab === item.id ? "dblock" : "hidden"
+                                                }`}
+                                              data-tab={item.id}
+                                              role="region"
+                                              aria-labelledby={`elementor-tab-title-${item.id}`}
+                                            >
+                                              {item.answer}
+                                            </div>
                                           </div>
-                                          <div id="elementor-tab-content-1021" className="elementor-tab-content elementor-clearfix" data-tab={1} role="region" aria-labelledby="elementor-tab-title-1021" >FortiVault Wallet is a secure, easy-to-use platform for managing, sending, and receiving cryptocurrencies. It supports multiple tokens and offers advanced security features to protect your digital assets.</div>
-                                        </div>
-                                        <div className="elementor-toggle-item" >
-                                          <div id="elementor-tab-title-1022" className="elementor-tab-title" data-tab={2} role="button" aria-controls="elementor-tab-content-1022" aria-expanded="false" >
-                                            <span className="elementor-toggle-icon elementor-toggle-icon-right" aria-hidden="true">
-                                              <span className="elementor-toggle-icon-closed"><i className="fas fa-chevron-down" /></span>
-                                              <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-chevron-up" /></span>
-                                            </span>
-                                            <a className="elementor-toggle-title" tabIndex={0}>How do I get started?</a>
-                                          </div>
-                                          <div id="elementor-tab-content-1022" className="elementor-tab-content elementor-clearfix" data-tab={2} role="region" aria-labelledby="elementor-tab-title-1022" >Simply register online or download windows app, create an account, and follow the setup instructions. You'll be able to securely store, send, and receive a wide range of cryptocurrencies in just a few steps.
-
-                                          </div>
-                                        </div>
-                                        <div className="elementor-toggle-item" >
-                                          <div id="elementor-tab-title-1023" className="elementor-tab-title" data-tab={3} role="button" aria-controls="elementor-tab-content-1023" aria-expanded="false" >
-                                            <span className="elementor-toggle-icon elementor-toggle-icon-right" aria-hidden="true">
-                                              <span className="elementor-toggle-icon-closed"><i className="fas fa-chevron-down" /></span>
-                                              <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-chevron-up" /></span>
-                                            </span>
-                                            <a className="elementor-toggle-title" tabIndex={0}>Is my crypto safe in FortiVault Wallet?</a>
-                                          </div>
-                                          <div id="elementor-tab-content-1023" className="elementor-tab-content elementor-clearfix" data-tab={3} role="region" aria-labelledby="elementor-tab-title-1023" >Yes, your crypto is protected with top-level encryption, multi-layer authentication, and cold storage solutions, ensuring maximum security for your digital assets.</div>
-                                        </div>
-                                        <div className="elementor-toggle-item" >
-                                          <div id="elementor-tab-title-1024" className="elementor-tab-title" data-tab={4} role="button" aria-controls="elementor-tab-content-1024" aria-expanded="false" >
-                                            <span className="elementor-toggle-icon elementor-toggle-icon-right" aria-hidden="true">
-                                              <span className="elementor-toggle-icon-closed"><i className="fas fa-chevron-down" /></span>
-                                              <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-chevron-up" /></span>
-                                            </span>
-                                            <a className="elementor-toggle-title" tabIndex={0}>What crypto is supported</a>
-                                          </div>
-                                          <div id="elementor-tab-content-1024" className="elementor-tab-content elementor-clearfix" data-tab={4} role="region" aria-labelledby="elementor-tab-title-1024" >
-                                            FortiVault Wallet supports a wide variety of cryptocurrencies, including Bitcoin, Ethereum, and many popular altcoins. Check our supported tokens list for the full range of assets you can store and manage.</div>
-                                        </div>
-                                        <div className="elementor-toggle-item" >
-                                          <div id="elementor-tab-title-1025" className="elementor-tab-title" data-tab={5} role="button" aria-controls="elementor-tab-content-1025" aria-expanded="false" >
-                                            <span className="elementor-toggle-icon elementor-toggle-icon-right" aria-hidden="true">
-                                              <span className="elementor-toggle-icon-closed"><i className="fas fa-chevron-down" /></span>
-                                              <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-chevron-up" /></span>
-                                            </span>
-                                            <a className="elementor-toggle-title" tabIndex={0}>Can I stake my crypto in FortiVault Wallet?</a>
-                                          </div>
-                                          <div id="elementor-tab-content-1025" className="elementor-tab-content elementor-clearfix" data-tab={5} role="region" aria-labelledby="elementor-tab-title-1025" >
-                                            Yes, FortiVault Wallet offers a simple staking option that allows you to earn rewards by staking your tokens directly within the app. Just choose your desired crypto, and start staking to maximize your returns.</div>
-                                        </div>
-                                        <div className="elementor-toggle-item" >
-                                          <div id="elementor-tab-title-1026" className="elementor-tab-title" data-tab={6} role="button" aria-controls="elementor-tab-content-1026" aria-expanded="false" >
-                                            <span className="elementor-toggle-icon elementor-toggle-icon-right" aria-hidden="true">
-                                              <span className="elementor-toggle-icon-closed"><i className="fas fa-chevron-down" /></span>
-                                              <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-chevron-up" /></span>
-                                            </span>
-                                            <a className="elementor-toggle-title" tabIndex={0}>Can I connect my bank account or credit card to FortiVault Wallet?</a>
-                                          </div>
-                                          <div id="elementor-tab-content-1026" className="elementor-tab-content elementor-clearfix" data-tab={6} role="region" aria-labelledby="elementor-tab-title-1026" >
-                                            Yes, FortiVault Wallet allows you to link your bank account or credit card for easy purchasing and transferring of cryptocurrencies. Enjoy a simple, secure way to fund your wallet and manage your assets.
-
-
-
-
-
-
-
-                                          </div>
-                                        </div>
+                                        ))}
                                       </div>
                                     </div>
                                   </div>
