@@ -94,11 +94,9 @@ const Home = () => {
         <nav id="pr-nav" className="primary-menu navbar navbar-expand-lg navbar-dark nav-white-desktop">
           <div className="container-fluid primary-menu-inner px-0" >
             <div className="top-wrap" >
-              <a className="custom-logo-link" href="https://toka.peerduck.com" >
+              <Link className="custom-logo-link" to="/" >
                 <h5 className="m-0"><img style={{ width: "70px" }} src={LogoNew} alt="" /></h5>
-              </a> <button id="mobile-toggle" className="navbar-toggler animate-button collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span id="m-tgl-icon" className="animated-icon1"><span /><span /></span>
-              </button>
+              </Link>
             </div>
             <div className="collapse navbar-collapse justify-content-end" id="navbarColor01" >
               <ul id="primary-menu" className="navbar-nav pl-3" itemScope itemType="http://www.schema.org/SiteNavigationElement">
