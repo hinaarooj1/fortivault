@@ -20,7 +20,8 @@
 
 }
 
-.mainea .header, .mainea {
+.mainea .header,
+.mainea {
     background-color: #0d0d2b !important;
 }
 
@@ -928,4 +929,15 @@ img.emoji {
     vertical-align: -0.1em !important;
     background: none !important;
     padding: 0 !important;
+}
+
+@media (max-width:990px) {
+    .fldla {
+        flex-basis: 0;
+        flex-grow: 0;
+    }
+
+    .homepaag .top-wrap {
+        width: max-content !important;
+    }
 }

@@ -98,156 +98,9 @@ const Home = () => {
                 <h5 className="m-0"><img style={{ width: "70px" }} src={LogoNew} alt="" /></h5>
               </Link>
             </div>
-            <div className="collapse navbar-collapse justify-content-end" id="navbarColor01" >
-              <ul id="primary-menu" className="navbar-nav pl-3" itemScope itemType="http://www.schema.org/SiteNavigationElement">
-                <li id="menu-item-22540" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-22540 nav-item">
-                  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="menu-item-dropdown-22540"><span itemProp="name">NFT</span></a>
-                  <ul className="dropdown-menu" aria-labelledby="menu-item-dropdown-22540">
-                    <li id="menu-item-16387" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-16387 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/nft-landing-page/" className="dropdown-item" ><span itemProp="name">NFT Landing Page</span></a></li>
-                    <li id="menu-item-19406" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-19406 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/nft-collection-landing/" className="dropdown-item" ><span itemProp="name">NFT Collection Landing</span></a></li>
-                    <li id="menu-item-21666" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-21666 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/nft-platform/" className="dropdown-item" ><span itemProp="name">NFT Platform</span></a></li>
-                    <li id="menu-item-17399" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-17399 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/nft-marketplace/" className="dropdown-item" ><span itemProp="name">NFT Marketplace</span></a></li>
-                    <li id="menu-item-22343" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-22343 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/nft-game/" className="dropdown-item" ><span itemProp="name">NFT Game</span></a></li>
-                    <li id="menu-item-22629" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-22629 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/nft-dao-platform/" className="dropdown-item" ><span itemProp="name">NFT DAO Platform</span></a></li>
-                    <li id="menu-item-23663" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-23663 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/nft-website/" className="dropdown-item" ><span itemProp="name">NFT Website</span></a></li>
-                    <li id="menu-item-24097" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-24097 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/metaverse-website/" className="dropdown-item" ><span itemProp="name">Metaverse Website</span></a></li>
-                  </ul>
-                </li>
-                <li id="menu-item-635" className="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children dropdown active menu-item-635 nav-item">
-                  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="menu-item-dropdown-635"><span itemProp="name">Crypto</span></a>
-                  <ul className="dropdown-menu" aria-labelledby="menu-item-dropdown-635">
-                    <li id="menu-item-15311" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-15311 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/crypto-trading/" className="dropdown-item" ><span itemProp="name">Crypto Trading</span></a></li>
-                    <li id="menu-item-15865" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-15865 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/crypto-exchange/" className="dropdown-item" ><span itemProp="name">Crypto Exchange</span></a></li>
-                    <li id="menu-item-16721" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-16721 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/blockchain-services/" className="dropdown-item" ><span itemProp="name">Blockchain Services</span></a></li>
-                    <li id="menu-item-17056" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-17056 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/" className="dropdown-item" ><span itemProp="name">Crypto Cards</span></a></li>
-                    <li id="menu-item-18929" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-18929 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/ico-landing/" className="dropdown-item" ><span itemProp="name">ICO Landing</span></a></li>
-                    <li id="menu-item-19792" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-19792 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/crypto-startup/" className="dropdown-item" ><span itemProp="name">Crypto Startup</span></a></li>
-                    <li id="menu-item-20133" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-20133 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/payments-with-crypto/" className="dropdown-item" ><span itemProp="name">Payments with Crypto</span></a></li>
-                    <li id="menu-item-20941" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-20941 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/crypto-trading-app/" className="dropdown-item" ><span itemProp="name">Crypto Trading App</span></a></li>
-                    <li id="menu-item-21251" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-21251 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/crypto-app/" className="dropdown-item" ><span itemProp="name">Crypto App</span></a></li>
-                    <li id="menu-item-22045" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-22045 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/defi-project-landing/" className="dropdown-item" ><span itemProp="name">DeFi Project Landing</span></a></li>
-                    <li id="menu-item-22933" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-22933 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/crypto-hardware-wallets/" className="dropdown-item" ><span itemProp="name">Crypto Hardware Wallets</span></a></li>
-                    <li id="menu-item-23312" className="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-23310 current_page_item active menu-item-23312 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/crypto-wallet-app/" className="dropdown-item" aria-current="page" ><span itemProp="name">Crypto Wallet App</span></a></li>
-                  </ul>
-                </li>
-                <li id="menu-item-18282" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-18282 nav-item">
-                  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="menu-item-dropdown-18282"><span itemProp="name">About Us</span></a>
-                  <ul className="dropdown-menu" aria-labelledby="menu-item-dropdown-18282">
-                    <li id="menu-item-1553" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1553 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/about-us/" className="dropdown-item" ><span itemProp="name">About Us</span></a></li>
-                    <li id="menu-item-18281" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-18281 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/about-us-dark/" className="dropdown-item" ><span itemProp="name">About Us Dark</span></a></li>
-                  </ul>
-                </li>
-                <li id="menu-item-18283" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-18283 nav-item">
-                  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="menu-item-dropdown-18283"><span itemProp="name">Our Team</span></a>
-                  <ul className="dropdown-menu" aria-labelledby="menu-item-dropdown-18283">
-                    <li id="menu-item-1675" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1675 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/our-team/" className="dropdown-item" ><span itemProp="name">Our Team</span></a></li>
-                    <li id="menu-item-18279" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-18279 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/our-team-dark/" className="dropdown-item" ><span itemProp="name">Our Team Dark</span></a></li>
-                  </ul>
-                </li>
-                <li id="menu-item-18284" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-18284 nav-item">
-                  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="menu-item-dropdown-18284"><span itemProp="name">Contact Us</span></a>
-                  <ul className="dropdown-menu" aria-labelledby="menu-item-dropdown-18284">
-                    <li id="menu-item-1814" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1814 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/contact-us/" className="dropdown-item" ><span itemProp="name">Contact Us</span></a></li>
-                    <li id="menu-item-18280" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-18280 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/contact-us-dark/" className="dropdown-item" ><span itemProp="name">Contact Us Dark</span></a></li>
-                  </ul>
-                </li>
-                <li id="menu-item-1949" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-1949 nav-item">
-                  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="menu-item-dropdown-1949"><span itemProp="name">Online Shop</span></a>
-                  <ul className="dropdown-menu" aria-labelledby="menu-item-dropdown-1949">
-                    <li id="menu-item-1864" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1864 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/shop/" className="dropdown-item" ><span itemProp="name">Shop</span></a></li>
-                    <li id="menu-item-1953" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1953 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/my-account/" className="dropdown-item" ><span itemProp="name">My account</span></a></li>
-                    <li id="menu-item-1951" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1951 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/cart/" className="dropdown-item" ><span itemProp="name">Cart</span></a></li>
-                    <li id="menu-item-1952" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1952 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/checkout/" className="dropdown-item" ><span itemProp="name">Checkout</span></a></li>
-                  </ul>
-                </li>
-                <li id="menu-item-1868" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-1868 nav-item">
-                  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="menu-item-dropdown-1868"><span itemProp="name">Blog</span></a>
-                  <ul className="dropdown-menu" aria-labelledby="menu-item-dropdown-1868">
-                    <li id="menu-item-1867" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1867 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/blog-1-column/" className="dropdown-item" ><span itemProp="name">Blog 1 Column</span></a></li>
-                    <li id="menu-item-1878" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1878 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/blog-1-column-with-sidebar/" className="dropdown-item" ><span itemProp="name">Blog 1 Column with Sidebar</span></a></li>
-                    <li id="menu-item-1879" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1879 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/blog-2-columns/" className="dropdown-item" ><span itemProp="name">Blog 2 Columns</span></a></li>
-                    <li id="menu-item-1880" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1880 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/blog-2-columns-with-sidebar/" className="dropdown-item" ><span itemProp="name">Blog 2 Columns with Sidebar</span></a>
-                    </li>
-                    <li id="menu-item-1877" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1877 nav-item">
-                      <a itemProp="url" href="https://toka.peerduck.com/blog-3-columns/" className="dropdown-item" ><span itemProp="name">Blog 3 Columns</span></a></li>
-                  </ul>
-                </li>
-              </ul>
-              <div className="header-icons" >
-                <div id="magic-search" className="magic-search" >
-                  <form role="search" method="get" className="search-form" action="https://toka.peerduck.com/">
-                    <div className="inner-form" >
-                      <div className="row justify-content-end" >
-                        <div className="input-field first justify-content-end" id="first" >
-                          <svg className="search-icon" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="612.01px" height="612.01px" viewBox="0 0 612.01 612.01" xmlSpace="preserve">
-                            <g>
-                              <path d="M606.209,578.714L448.198,423.228C489.576,378.272,515,318.817,515,253.393C514.98,113.439,399.704,0,257.493,0
-              C115.282,0,0.006,113.439,0.006,253.393s115.276,253.393,257.487,253.393c61.445,0,117.801-21.253,162.068-56.586
-              l158.624,156.099c7.729,7.614,20.277,7.614,28.006,0C613.938,598.686,613.938,586.328,606.209,578.714z M257.493,467.8
-              c-120.326,0-217.869-95.993-217.869-214.407S137.167,38.986,257.493,38.986c120.327,0,217.869,95.993,217.869,214.407
-              S377.82,467.8,257.493,467.8z" />
-                            </g>
-                          </svg>
-                          <input autoComplete="off" type="search" className="input" id="inputFocus" placeholder="Search" name="s" required />
-                          <input type="submit" defaultValue="Search" className="search-submit" />
-                          <input type="hidden" name="post_type" defaultValue="product" />
-                          <div className="clear" id="clear" >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="#6e6e73" width={24} height={24} viewBox="0 0 24 24">
-                              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
-                              </path>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div className="header-cart-icon" > <a className="menu-item cart-contents" href="https://toka.peerduck.com/cart/" title="My Basket" >
-                  <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.79942 11.6369H5.80024C5.80093 11.6369 5.80161 11.6367 5.8023 11.6367H15.3633C15.5987 11.6367 15.8056 11.4806 15.8703 11.2543L17.9797 3.87144C18.0251 3.71228 17.9933 3.54117 17.8937 3.40906C17.794 3.27695 17.6381 3.19922 17.4727 3.19922H4.58323L4.20626 1.50279C4.15257 1.26151 3.93861 1.08984 3.69141 1.08984H0.527351C0.236076 1.08984 7.62939e-06 1.32591 7.62939e-06 1.61719C7.62939e-06 1.90846 0.236076 2.14453 0.527351 2.14453H3.26844C3.33518 2.44514 5.0724 10.2627 5.17237 10.7125C4.61193 10.9561 4.21876 11.5149 4.21876 12.1641C4.21876 13.0364 4.92847 13.7461 5.80079 13.7461H15.3633C15.6546 13.7461 15.8906 13.51 15.8906 13.2188C15.8906 12.9275 15.6546 12.6914 15.3633 12.6914H5.80079C5.51006 12.6914 5.27345 12.4548 5.27345 12.1641C5.27345 11.8737 5.50924 11.6375 5.79942 11.6369ZM16.7735 4.25391L14.9654 10.582H6.22376L4.81751 4.25391H16.7735Z">
-                    </path>
-                    <path d="M5.27342 15.3281C5.27342 16.2004 5.98314 16.9102 6.85545 16.9102C7.72777 16.9102 8.43749 16.2004 8.43749 15.3281C8.43749 14.4558 7.72777 13.7461 6.85545 13.7461C5.98314 13.7461 5.27342 14.4558 5.27342 15.3281ZM6.85545 14.8008C7.14618 14.8008 7.3828 15.0374 7.3828 15.3281C7.3828 15.6189 7.14618 15.8555 6.85545 15.8555C6.56473 15.8555 6.32811 15.6189 6.32811 15.3281C6.32811 15.0374 6.56473 14.8008 6.85545 14.8008Z">
-                    </path>
-                    <path d="M12.7266 15.3281C12.7266 16.2004 13.4363 16.9102 14.3086 16.9102C15.1809 16.9102 15.8906 16.2004 15.8906 15.3281C15.8906 14.4558 15.1809 13.7461 14.3086 13.7461C13.4363 13.7461 12.7266 14.4558 12.7266 15.3281ZM14.3086 14.8008C14.5993 14.8008 14.8359 15.0374 14.8359 15.3281C14.8359 15.6189 14.5993 15.8555 14.3086 15.8555C14.0179 15.8555 13.7812 15.6189 13.7812 15.3281C13.7812 15.0374 14.0179 14.8008 14.3086 14.8008Z">
-                    </path>
-                  </svg>
-                </a>
-                </div>
-              </div>
+            <div style={{ display: 'flex', flexDirection: "row" }} className="collapse fldla navbar-collapse justify-content-end"   >
+
+
               <div className="header-cta" ><Link to="/auth/login"  >
                 <div className="d-inline-block elementor-button-link elementor-button elementor-size-md" >Sign In</div>
               </Link></div>
@@ -268,11 +121,7 @@ const Home = () => {
                     <div className="elementor-container elementor-column-gap-custom" >
                       <div className="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7cfe8d4 animated fadeIn" data-id="7cfe8d4" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_delay&quot;:500}" >
                         <div className="elementor-widget-wrap elementor-element-populated" >
-                          <div className="elementor-element elementor-element-e8c8ece elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-id="e8c8ece" data-element_type="widget" data-widget_type="text-editor.default" >
-                            <div className="elementor-widget-container" >
-                              <style dangerouslySetInnerHTML={{ __html: "\n                                                    /*! elementor - v3.21.0 - 24-04-2024 */\n                                                    .elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap {\n                                                        background-color: #69727d;\n                                                        color: #fff\n                                                    }\n\n                                                    .elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap {\n                                                        color: #69727d;\n                                                        border: 3px solid;\n                                                        background-color: transparent\n                                                    }\n\n                                                    .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap {\n                                                        margin-top: 8px\n                                                    }\n\n                                                    .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter {\n                                                        width: 1em;\n                                                        height: 1em\n                                                    }\n\n                                                    .elementor-widget-text-editor .elementor-drop-cap {\n                                                        float: left;\n                                                        text-align: center;\n                                                        line-height: 1;\n                                                        font-size: 50px\n                                                    }\n\n                                                    .elementor-widget-text-editor .elementor-drop-cap-letter {\n                                                        display: inline-block\n                                                    }\n                                                " }} /> #1 crypto wallet
-                            </div>
-                          </div>
+
                           <div className="elementor-element elementor-element-b53c240 elementor-widget elementor-widget-text-editor" data-id="b53c240" data-element_type="widget" data-widget_type="text-editor.default" >
                             <div className="elementor-widget-container" >
                               The Ultimate Crypto Wallet  </div>
@@ -294,20 +143,7 @@ const Home = () => {
                           </div>
                           <section className="elementor-section elementor-inner-section elementor-element elementor-element-2944cb3 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2944cb3" data-element_type="section">
                             <div className="elementor-container elementor-column-gap-default" >
-                              <div className="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-e26ef82" data-id="e26ef82" data-element_type="column" >
-                                <div className="elementor-widget-wrap elementor-element-populated" >
-                                  <div className="elementor-element elementor-element-bbcb8ee elementor-widget__width-auto elementor-widget elementor-widget-image" data-id="bbcb8ee" data-element_type="widget" data-widget_type="image.default" >
-                                    <div className="elementor-widget-container" >
-                                      <style dangerouslySetInnerHTML={{ __html: "\n                                                                    /*! elementor - v3.21.0 - 24-04-2024 */\n                                                                    .elementor-widget-image {\n                                                                        text-align: center\n                                                                    }\n\n                                                                    .elementor-widget-image a {\n                                                                        display: inline-block\n                                                                    }\n\n                                                                    .elementor-widget-image a img[src$=\".svg\"] {\n                                                                        width: 48px\n                                                                    }\n\n                                                                    .elementor-widget-image img {\n                                                                        vertical-align: middle;\n                                                                        display: inline-block\n                                                                    }\n                                                                " }} /> <img decoding="async" width={400} height={77} src="https://toka.peerduck.com/wp-content/uploads/2022/11/4tgt.png" className="attachment-large size-large wp-image-22990" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/4tgt.png 400w, https://toka.peerduck.com/wp-content/uploads/2022/11/4tgt-300x58.png 300w" sizes="(max-width: 400px) 100vw, 400px" />
-                                    </div>
-                                  </div>
-                                  <div className="elementor-element elementor-element-9cf69f8 elementor-widget__width-auto elementor-widget elementor-widget-image" data-id="9cf69f8" data-element_type="widget" data-widget_type="image.default" >
-                                    <div className="elementor-widget-container" >
-                                      <img decoding="async" width={400} height={102} src="https://toka.peerduck.com/wp-content/uploads/2022/11/4tg4t.png" className="attachment-large size-large wp-image-22989" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/4tg4t.png 400w, https://toka.peerduck.com/wp-content/uploads/2022/11/4tg4t-300x77.png 300w" sizes="(max-width: 400px) 100vw, 400px" />
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+
                             </div>
                           </section>
                         </div>
@@ -319,17 +155,7 @@ const Home = () => {
                               <img fetchpriority="high" decoding="async" width={498} height={1024} src="https://toka.peerduck.com/wp-content/uploads/2022/11/kebfrg-498x1024.png" className="attachment-large size-large wp-image-23315" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/kebfrg-498x1024.png 498w, https://toka.peerduck.com/wp-content/uploads/2022/11/kebfrg-146x300.png 146w, https://toka.peerduck.com/wp-content/uploads/2022/11/kebfrg-768x1580.png 768w, https://toka.peerduck.com/wp-content/uploads/2022/11/kebfrg-747x1536.png 747w, https://toka.peerduck.com/wp-content/uploads/2022/11/kebfrg-600x1235.png 600w, https://toka.peerduck.com/wp-content/uploads/2022/11/kebfrg.png 834w" sizes="(max-width: 498px) 100vw, 498px" />
                             </div>
                           </div>
-                          <div className="elementor-element elementor-element-8e3fa3e premium-floating-effects-yes elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-text-path" data-id="8e3fa3e" data-element_type="widget" data-settings="{&quot;text&quot;:&quot;The most advanced wallet for your crypto&quot;,&quot;align&quot;:&quot;center&quot;,&quot;premium_fe_rotate_switcher&quot;:&quot;yes&quot;,&quot;premium_fe_Xrotate&quot;:{&quot;unit&quot;:&quot;deg&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;from&quot;:0,&quot;to&quot;:0}},&quot;premium_fe_Yrotate&quot;:{&quot;unit&quot;:&quot;deg&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;from&quot;:0,&quot;to&quot;:0}},&quot;premium_fe_Zrotate&quot;:{&quot;unit&quot;:&quot;deg&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;from&quot;:-180,&quot;to&quot;:180}},&quot;premium_fe_rotate_duration&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:15000,&quot;sizes&quot;:[]},&quot;premium_fe_direction&quot;:&quot;normal&quot;,&quot;premium_fe_easing&quot;:&quot;linear&quot;,&quot;_position&quot;:&quot;absolute&quot;,&quot;link&quot;:{&quot;url&quot;:&quot;&quot;,&quot;is_external&quot;:&quot;&quot;,&quot;nofollow&quot;:&quot;&quot;,&quot;custom_attributes&quot;:&quot;&quot;},&quot;start_point&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;premium_fe_Xrotate_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;premium_fe_Xrotate_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;premium_fe_Yrotate_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;premium_fe_Yrotate_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;premium_fe_Zrotate_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;premium_fe_Zrotate_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;premium_fe_rotate_delay&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;premium_fe_loop&quot;:&quot;default&quot;}" data-widget_type="text-path.default" >
-                            <div className="elementor-widget-container" style={{ transform: 'rotateX(0deg) rotateY(0deg) rotateZ(47.1432deg)' }} >
-                              <div className="e-text-path" data-text="The most advanced wallet for your crypto" data-url="//toka.peerduck.com/wp-content/plugins/elementor/assets/svg-paths/circle.svg" data-link-url ><svg viewBox="0 0 250.5 250.5" height="250.5" width="250.5" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M.25,125.25a125,125,0,1,1,125,125,125,125,0,0,1-125-125" id="e-path-8e3fa3e" />
-                                <text>
-                                  <textPath id="e-text-path-8e3fa3e" href="#e-path-8e3fa3e" startOffset="0%">The most advanced wallet for your
-                                    crypto</textPath>
-                                </text>
-                              </svg></div>
-                            </div>
-                          </div>
+
                         </div>
                       </div>
                     </div>
@@ -367,18 +193,7 @@ const Home = () => {
                                       we empower you to explore the crypto world with confidence and ease.
                                     </div>
                                   </div>
-                                  <div className="elementor-element elementor-element-e7268fe elementor-tablet-align-center elementor-widget elementor-widget-button" data-id="e7268fe" data-element_type="widget" data-widget_type="button.default" >
-                                    <div className="elementor-widget-container" >
-                                      <div className="elementor-button-wrapper" >
-                                        <Link className="elementor-button elementor-button-link elementor-size-xl" to="/auth/signup" >
-                                          <span className="elementor-button-content-wrapper">
-                                            <span className="elementor-button-text">Learn
-                                              more</span>
-                                          </span>
-                                        </Link>
-                                      </div>
-                                    </div>
-                                  </div>
+
                                 </div>
                               </div>
                             </div>
@@ -623,18 +438,7 @@ const Home = () => {
                                       Manage, trade, stake, and grow your crypto portfolio—all in one secure and intuitive platform. Explore the future of finance with confidence.
                                     </div>
                                   </div>
-                                  <div className="elementor-element elementor-element-0b44de9 elementor-tablet-align-center elementor-widget elementor-widget-button" data-id="0b44de9" data-element_type="widget" data-widget_type="button.default" >
-                                    <div className="elementor-widget-container" >
-                                      <div className="elementor-button-wrapper" >
-                                        <Link className="elementor-button elementor-button-link elementor-size-xl elementor-animation-float" to="/auth/signup" >
-                                          <span className="elementor-button-content-wrapper">
-                                            <span className="elementor-button-text">Start
-                                              now</span>
-                                          </span>
-                                        </Link>
-                                      </div>
-                                    </div>
-                                  </div>
+
                                 </div>
                               </div>
                             </div>
@@ -657,18 +461,7 @@ const Home = () => {
                                       or altcoins, we provide seamless compatibility for your diverse digital assets.
                                     </div>
                                   </div>
-                                  <div className="elementor-element elementor-element-c50aa89 elementor-tablet-align-center elementor-widget elementor-widget-button" data-id="c50aa89" data-element_type="widget" data-widget_type="button.default" >
-                                    <div className="elementor-widget-container" >
-                                      <div className="elementor-button-wrapper" >
-                                        <Link className="elementor-button elementor-button-link elementor-size-xl" to="/auth/signup" >
-                                          <span className="elementor-button-content-wrapper">
-                                            <span className="elementor-button-text">Learn
-                                              more</span>
-                                          </span>
-                                        </Link>
-                                      </div>
-                                    </div>
-                                  </div>
+
                                 </div>
                               </div>
                               <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-191c4f9 animated fadeIn" data-id="191c4f9" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;background_background&quot;:&quot;classic&quot;}" >
