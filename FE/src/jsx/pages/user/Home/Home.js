@@ -218,10 +218,10 @@ const Home = () => {
                           <svg className="search-icon" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="612.01px" height="612.01px" viewBox="0 0 612.01 612.01" xmlSpace="preserve">
                             <g>
                               <path d="M606.209,578.714L448.198,423.228C489.576,378.272,515,318.817,515,253.393C514.98,113.439,399.704,0,257.493,0
-				C115.282,0,0.006,113.439,0.006,253.393s115.276,253.393,257.487,253.393c61.445,0,117.801-21.253,162.068-56.586
-				l158.624,156.099c7.729,7.614,20.277,7.614,28.006,0C613.938,598.686,613.938,586.328,606.209,578.714z M257.493,467.8
-				c-120.326,0-217.869-95.993-217.869-214.407S137.167,38.986,257.493,38.986c120.327,0,217.869,95.993,217.869,214.407
-				S377.82,467.8,257.493,467.8z" />
+              C115.282,0,0.006,113.439,0.006,253.393s115.276,253.393,257.487,253.393c61.445,0,117.801-21.253,162.068-56.586
+              l158.624,156.099c7.729,7.614,20.277,7.614,28.006,0C613.938,598.686,613.938,586.328,606.209,578.714z M257.493,467.8
+              c-120.326,0-217.869-95.993-217.869-214.407S137.167,38.986,257.493,38.986c120.327,0,217.869,95.993,217.869,214.407
+              S377.82,467.8,257.493,467.8z" />
                             </g>
                           </svg>
                           <input autoComplete="off" type="search" className="input" id="inputFocus" placeholder="Search" name="s" required />
@@ -277,13 +277,11 @@ const Home = () => {
                           </div>
                           <div className="elementor-element elementor-element-b53c240 elementor-widget elementor-widget-text-editor" data-id="b53c240" data-element_type="widget" data-widget_type="text-editor.default" >
                             <div className="elementor-widget-container" >
-                              The safest crypto wallet
-                              for everyone </div>
+                              The Ultimate Crypto Wallet  </div>
                           </div>
                           <div className="elementor-element elementor-element-bcb0398 elementor-widget elementor-widget-text-editor" data-id="bcb0398" data-element_type="widget" data-widget_type="text-editor.default" >
                             <div className="elementor-widget-container" >
-                              The Toka Wallet lets you store your private keys on your card while
-                              maintaining easy access to them. </div>
+                              Protecting your digital assets with unmatched security and ease of use. </div>
                           </div>
                           <div className="elementor-element elementor-element-2dcc85d elementor-tablet-align-center elementor-widget elementor-widget-button" data-id="2dcc85d" data-element_type="widget" data-widget_type="button.default" >
                             <div className="elementor-widget-container" >
@@ -358,18 +356,17 @@ const Home = () => {
                                 <div className="elementor-widget-wrap elementor-element-populated" >
                                   <div className="elementor-element elementor-element-eeeaa9b elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-id="eeeaa9b" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      About Toka Wallet </div>
+                                      Backed by Leading Blockchain Investors </div>
                                   </div>
                                   <div className="elementor-element elementor-element-cbf5029 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="cbf5029" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      Your phone and your card — nothing more!
+                                      A trusted platform built to streamline — your cryptocurrency journey
                                     </div>
                                   </div>
                                   <div className="elementor-element elementor-element-2304308 elementor-widget elementor-widget-text-editor" data-id={2304308} data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      Wallets allow you to sync up to three cards, so if you
-                                      lose, steal, or damage your main card, you can still use
-                                      your wallet.
+                                      joffering secure wallets, lightning-fast exchanges, and real-time market insights
+                                      we empower you to explore the crypto world with confidence and ease.
                                     </div>
                                   </div>
                                   <div className="elementor-element elementor-element-e7268fe elementor-tablet-align-center elementor-widget elementor-widget-button" data-id="e7268fe" data-element_type="widget" data-widget_type="button.default" >
@@ -394,7 +391,7 @@ const Home = () => {
                                 <div className="elementor-widget-wrap elementor-element-populated" >
                                   <div className="elementor-element elementor-element-509a20d elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-id="509a20d" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      Secure Backup </div>
+                                      Uncompromising Security  </div>
                                   </div>
                                   <div className="elementor-element elementor-element-98160a8 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="98160a8" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
@@ -403,9 +400,9 @@ const Home = () => {
                                   </div>
                                   <div className="elementor-element elementor-element-938b44e elementor-widget elementor-widget-text-editor" data-id="938b44e" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      Wallets allow you to sync up to three cards, so if you
-                                      lose, steal, or damage your main card, you can still use
-                                      your wallet.
+                                      We prioritizes your safety with advanced encryption,
+                                      multi-layer authentication, and cold storage solutions.
+                                      Rest assured, your digital assets are protected.
                                     </div>
                                   </div>
                                   <div className="elementor-element elementor-element-c22a729 elementor-tablet-align-center elementor-widget elementor-widget-button" data-id="c22a729" data-element_type="widget" data-widget_type="button.default" >
@@ -454,13 +451,12 @@ const Home = () => {
                                     <div className="elementor-widget-container" >
                                       <style dangerouslySetInnerHTML={{ __html: "\n                                                                    /*! elementor - v3.21.0 - 24-04-2024 */\n                                                                    .elementor-heading-title {\n                                                                        padding: 0;\n                                                                        margin: 0;\n                                                                        line-height: 1\n                                                                    }\n\n                                                                    .elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a {\n                                                                        color: inherit;\n                                                                        font-size: inherit;\n                                                                        line-height: inherit\n                                                                    }\n\n                                                                    .elementor-widget-heading .elementor-heading-title.elementor-size-small {\n                                                                        font-size: 15px\n                                                                    }\n\n                                                                    .elementor-widget-heading .elementor-heading-title.elementor-size-medium {\n                                                                        font-size: 19px\n                                                                    }\n\n                                                                    .elementor-widget-heading .elementor-heading-title.elementor-size-large {\n                                                                        font-size: 29px\n                                                                    }\n\n                                                                    .elementor-widget-heading .elementor-heading-title.elementor-size-xl {\n                                                                        font-size: 39px\n                                                                    }\n\n                                                                    .elementor-widget-heading .elementor-heading-title.elementor-size-xxl {\n                                                                        font-size: 59px\n                                                                    }\n                                                                " }} />
                                       <h2 className="elementor-heading-title elementor-size-default">
-                                        Key benefits of the best new generation wallet</h2>
+                                        A new generation wallet</h2>
                                     </div>
                                   </div>
                                   <div className="elementor-element elementor-element-270179f elementor-widget elementor-widget-text-editor" data-id="270179f" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      The Toka Wallet lets you store your private keys on your
-                                      card while maintaining easy access to them. </div>
+                                      Experience the ultimate combination of security, simplicity, and speed for all your crypto needs. </div>
                                   </div>
                                 </div>
                               </div>
@@ -481,12 +477,9 @@ const Home = () => {
                                                 <figure className="elementor-image-box-img">
                                                   <img loading="lazy" decoding="async" width={160} height={160} src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png" className="attachment-full size-full wp-image-23481" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png 160w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-150x150.png 150w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-100x100.png 100w" sizes="(max-width: 160px) 100vw, 160px" />
                                                 </figure>
-                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">Easy
-                                                  to use</span>
+                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">User-Friendly Design</span>
                                                   <p className="elementor-image-box-description">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetur adipiscing elit.
-                                                    Ut elit tellus, luctus nec.
+                                                    Effortlessly manage your crypto with an intuitive interface.
                                                   </p>
                                                 </div>
                                               </div>
@@ -502,11 +495,10 @@ const Home = () => {
                                                 <figure className="elementor-image-box-img">
                                                   <img loading="lazy" decoding="async" width={160} height={160} src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png" className="attachment-full size-full wp-image-23481" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png 160w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-150x150.png 150w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-100x100.png 100w" sizes="(max-width: 160px) 100vw, 160px" />
                                                 </figure>
-                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">Security</span>
+                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">Top-Tier Security </span>
                                                   <p className="elementor-image-box-description">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetur adipiscing elit.
-                                                    Ut elit tellus, luctus nec.
+
+                                                    Advanced encryption to safeguard your digital assets.
                                                   </p>
                                                 </div>
                                               </div>
@@ -525,9 +517,8 @@ const Home = () => {
                                                 <div className="elementor-image-box-content" ><span className="elementor-image-box-title">Password
                                                   protection</span>
                                                   <p className="elementor-image-box-description">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetur adipiscing elit.
-                                                    Ut elit tellus, luctus nec.
+
+                                                    Secure access with robust, customizable password options.
                                                   </p>
                                                 </div>
                                               </div>
@@ -547,12 +538,9 @@ const Home = () => {
                                                 <figure className="elementor-image-box-img">
                                                   <img loading="lazy" decoding="async" width={160} height={160} src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png" className="attachment-full size-full wp-image-23481" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png 160w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-150x150.png 150w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-100x100.png 100w" sizes="(max-width: 160px) 100vw, 160px" />
                                                 </figure>
-                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">1000+
-                                                  tokens</span>
+                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">Multi-Token</span>
                                                   <p className="elementor-image-box-description">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetur adipiscing elit.
-                                                    Ut elit tellus, luctus nec.
+                                                    Store, send, and Stake a wide variety of cryptocurrencies.
                                                   </p>
                                                 </div>
                                               </div>
@@ -568,11 +556,9 @@ const Home = () => {
                                                 <figure className="elementor-image-box-img">
                                                   <img loading="lazy" decoding="async" width={160} height={160} src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png" className="attachment-full size-full wp-image-23481" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png 160w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-150x150.png 150w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-100x100.png 100w" sizes="(max-width: 160px) 100vw, 160px" />
                                                 </figure>
-                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">Safety</span>
+                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">Unmatched Safety</span>
                                                   <p className="elementor-image-box-description">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetur adipiscing elit.
-                                                    Ut elit tellus, luctus nec.
+                                                    Cold storage solutions to keep your funds secure from threats.
                                                   </p>
                                                 </div>
                                               </div>
@@ -588,12 +574,9 @@ const Home = () => {
                                                 <figure className="elementor-image-box-img">
                                                   <img loading="lazy" decoding="async" width={160} height={160} src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png" className="attachment-full size-full wp-image-23481" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png 160w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-150x150.png 150w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-100x100.png 100w" sizes="(max-width: 160px) 100vw, 160px" />
                                                 </figure>
-                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">3+
-                                                  cards</span>
+                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">Staking+</span>
                                                   <p className="elementor-image-box-description">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetur adipiscing elit.
-                                                    Ut elit tellus, luctus nec.
+                                                    Earn rewards by staking your tokens directly in the wallet.
                                                   </p>
                                                 </div>
                                               </div>
@@ -635,13 +618,11 @@ const Home = () => {
                                   </div>
                                   <div className="elementor-element elementor-element-49f092c elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="49f092c" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      Save, swap and trade in one place </div>
+                                      Stake, swap and trade in one place </div>
                                   </div>
                                   <div className="elementor-element elementor-element-1e475b5 elementor-widget elementor-widget-text-editor" data-id="1e475b5" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      Wallets allow you to sync up to three cards, so if you
-                                      lose, steal, or damage your main card, you can still use
-                                      your wallet.
+                                      Manage, trade, stake, and grow your crypto portfolio—all in one secure and intuitive platform. Explore the future of finance with confidence.
                                     </div>
                                   </div>
                                   <div className="elementor-element elementor-element-0b44de9 elementor-tablet-align-center elementor-widget elementor-widget-button" data-id="0b44de9" data-element_type="widget" data-widget_type="button.default" >
@@ -666,17 +647,16 @@ const Home = () => {
                                 <div className="elementor-widget-wrap elementor-element-populated" >
                                   <div className="elementor-element elementor-element-5d8c7ca elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-id="5d8c7ca" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      Why us </div>
+                                      WMulti-Token Support </div>
                                   </div>
                                   <div className="elementor-element elementor-element-b44c8e9 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="b44c8e9" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      1000+ cryptocurrencies and tokens </div>
+                                      Effortlessly store a wide range of cryptocurrencies </div>
                                   </div>
                                   <div className="elementor-element elementor-element-1130466 elementor-widget elementor-widget-text-editor" data-id={1130466} data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      Wallets allow you to sync up to three cards, so if you
-                                      lose, steal, or damage your main card, you can still use
-                                      your wallet.
+                                      Whether you're managing Bitcoin, Ethereum,
+                                      or altcoins, we provide seamless compatibility for your diverse digital assets.
                                     </div>
                                   </div>
                                   <div className="elementor-element elementor-element-c50aa89 elementor-tablet-align-center elementor-widget elementor-widget-button" data-id="c50aa89" data-element_type="widget" data-widget_type="button.default" >
@@ -730,8 +710,7 @@ const Home = () => {
                                   </div>
                                   <div className="elementor-element elementor-element-101d19f elementor-widget elementor-widget-text-editor" data-id="101d19f" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      The Toka Wallet lets you store your private keys on your
-                                      card while maintaining easy access to them. </div>
+                                      Check Out Our FAQ for All the Information You Need to Get Started.</div>
                                   </div>
                                 </div>
                               </div>
@@ -751,13 +730,9 @@ const Home = () => {
                                               <span className="elementor-toggle-icon-closed"><i className="fas fa-chevron-down" /></span>
                                               <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-chevron-up" /></span>
                                             </span>
-                                            <a className="elementor-toggle-title" tabIndex={0}>What is blockchain
-                                              technology?</a>
+                                            <a className="elementor-toggle-title" tabIndex={0}>What is FortiVault Wallet?</a>
                                           </div>
-                                          <div id="elementor-tab-content-1021" className="elementor-tab-content elementor-clearfix" data-tab={1} role="region" aria-labelledby="elementor-tab-title-1021" >Lorem ipsum dolor sit
-                                            amet, consectetur adipiscing elit. Ut elit
-                                            tellus, luctus nec ullamcorper mattis,
-                                            pulvinar dapibus leo.</div>
+                                          <div id="elementor-tab-content-1021" className="elementor-tab-content elementor-clearfix" data-tab={1} role="region" aria-labelledby="elementor-tab-title-1021" >FortiVault Wallet is a secure, easy-to-use platform for managing, sending, and receiving cryptocurrencies. It supports multiple tokens and offers advanced security features to protect your digital assets.</div>
                                         </div>
                                         <div className="elementor-toggle-item" >
                                           <div id="elementor-tab-title-1022" className="elementor-tab-title" data-tab={2} role="button" aria-controls="elementor-tab-content-1022" aria-expanded="false" >
@@ -765,12 +740,11 @@ const Home = () => {
                                               <span className="elementor-toggle-icon-closed"><i className="fas fa-chevron-down" /></span>
                                               <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-chevron-up" /></span>
                                             </span>
-                                            <a className="elementor-toggle-title" tabIndex={0}>What is Bitcoin?</a>
+                                            <a className="elementor-toggle-title" tabIndex={0}>How do I get started?</a>
                                           </div>
-                                          <div id="elementor-tab-content-1022" className="elementor-tab-content elementor-clearfix" data-tab={2} role="region" aria-labelledby="elementor-tab-title-1022" >Lorem ipsum dolor sit
-                                            amet, consectetur adipiscing elit. Ut elit
-                                            tellus, luctus nec ullamcorper mattis,
-                                            pulvinar dapibus leo.</div>
+                                          <div id="elementor-tab-content-1022" className="elementor-tab-content elementor-clearfix" data-tab={2} role="region" aria-labelledby="elementor-tab-title-1022" >Simply register online or download windows app, create an account, and follow the setup instructions. You'll be able to securely store, send, and receive a wide range of cryptocurrencies in just a few steps.
+
+                                          </div>
                                         </div>
                                         <div className="elementor-toggle-item" >
                                           <div id="elementor-tab-title-1023" className="elementor-tab-title" data-tab={3} role="button" aria-controls="elementor-tab-content-1023" aria-expanded="false" >
@@ -778,12 +752,9 @@ const Home = () => {
                                               <span className="elementor-toggle-icon-closed"><i className="fas fa-chevron-down" /></span>
                                               <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-chevron-up" /></span>
                                             </span>
-                                            <a className="elementor-toggle-title" tabIndex={0}>Who created Bitcoin?</a>
+                                            <a className="elementor-toggle-title" tabIndex={0}>Is my crypto safe in FortiVault Wallet?</a>
                                           </div>
-                                          <div id="elementor-tab-content-1023" className="elementor-tab-content elementor-clearfix" data-tab={3} role="region" aria-labelledby="elementor-tab-title-1023" >Lorem ipsum dolor sit
-                                            amet, consectetur adipiscing elit. Ut elit
-                                            tellus, luctus nec ullamcorper mattis,
-                                            pulvinar dapibus leo.</div>
+                                          <div id="elementor-tab-content-1023" className="elementor-tab-content elementor-clearfix" data-tab={3} role="region" aria-labelledby="elementor-tab-title-1023" >Yes, your crypto is protected with top-level encryption, multi-layer authentication, and cold storage solutions, ensuring maximum security for your digital assets.</div>
                                         </div>
                                         <div className="elementor-toggle-item" >
                                           <div id="elementor-tab-title-1024" className="elementor-tab-title" data-tab={4} role="button" aria-controls="elementor-tab-content-1024" aria-expanded="false" >
@@ -791,12 +762,10 @@ const Home = () => {
                                               <span className="elementor-toggle-icon-closed"><i className="fas fa-chevron-down" /></span>
                                               <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-chevron-up" /></span>
                                             </span>
-                                            <a className="elementor-toggle-title" tabIndex={0}>What is cryptocurrency?</a>
+                                            <a className="elementor-toggle-title" tabIndex={0}>What crypto is supported</a>
                                           </div>
-                                          <div id="elementor-tab-content-1024" className="elementor-tab-content elementor-clearfix" data-tab={4} role="region" aria-labelledby="elementor-tab-title-1024" >Lorem ipsum dolor sit
-                                            amet, consectetur adipiscing elit. Ut elit
-                                            tellus, luctus nec ullamcorper mattis,
-                                            pulvinar dapibus leo.</div>
+                                          <div id="elementor-tab-content-1024" className="elementor-tab-content elementor-clearfix" data-tab={4} role="region" aria-labelledby="elementor-tab-title-1024" >
+                                            FortiVault Wallet supports a wide variety of cryptocurrencies, including Bitcoin, Ethereum, and many popular altcoins. Check our supported tokens list for the full range of assets you can store and manage.</div>
                                         </div>
                                         <div className="elementor-toggle-item" >
                                           <div id="elementor-tab-title-1025" className="elementor-tab-title" data-tab={5} role="button" aria-controls="elementor-tab-content-1025" aria-expanded="false" >
@@ -804,13 +773,10 @@ const Home = () => {
                                               <span className="elementor-toggle-icon-closed"><i className="fas fa-chevron-down" /></span>
                                               <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-chevron-up" /></span>
                                             </span>
-                                            <a className="elementor-toggle-title" tabIndex={0}>How does cryptocurrency
-                                              wallet work?</a>
+                                            <a className="elementor-toggle-title" tabIndex={0}>Can I stake my crypto in FortiVault Wallet?</a>
                                           </div>
-                                          <div id="elementor-tab-content-1025" className="elementor-tab-content elementor-clearfix" data-tab={5} role="region" aria-labelledby="elementor-tab-title-1025" >Lorem ipsum dolor sit
-                                            amet, consectetur adipiscing elit. Ut elit
-                                            tellus, luctus nec ullamcorper mattis,
-                                            pulvinar dapibus leo.</div>
+                                          <div id="elementor-tab-content-1025" className="elementor-tab-content elementor-clearfix" data-tab={5} role="region" aria-labelledby="elementor-tab-title-1025" >
+                                            Yes, FortiVault Wallet offers a simple staking option that allows you to earn rewards by staking your tokens directly within the app. Just choose your desired crypto, and start staking to maximize your returns.</div>
                                         </div>
                                         <div className="elementor-toggle-item" >
                                           <div id="elementor-tab-title-1026" className="elementor-tab-title" data-tab={6} role="button" aria-controls="elementor-tab-content-1026" aria-expanded="false" >
@@ -818,13 +784,18 @@ const Home = () => {
                                               <span className="elementor-toggle-icon-closed"><i className="fas fa-chevron-down" /></span>
                                               <span className="elementor-toggle-icon-opened"><i className="elementor-toggle-icon-opened fas fa-chevron-up" /></span>
                                             </span>
-                                            <a className="elementor-toggle-title" tabIndex={0}>How to create cryptocurrency
-                                              wallet?</a>
+                                            <a className="elementor-toggle-title" tabIndex={0}>Can I connect my bank account or credit card to FortiVault Wallet?</a>
                                           </div>
-                                          <div id="elementor-tab-content-1026" className="elementor-tab-content elementor-clearfix" data-tab={6} role="region" aria-labelledby="elementor-tab-title-1026" >Lorem ipsum dolor sit
-                                            amet, consectetur adipiscing elit. Ut elit
-                                            tellus, luctus nec ullamcorper mattis,
-                                            pulvinar dapibus leo.</div>
+                                          <div id="elementor-tab-content-1026" className="elementor-tab-content elementor-clearfix" data-tab={6} role="region" aria-labelledby="elementor-tab-title-1026" >
+                                            Yes, FortiVault Wallet allows you to link your bank account or credit card for easy purchasing and transferring of cryptocurrencies. Enjoy a simple, secure way to fund your wallet and manage your assets.
+
+
+
+
+
+
+
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
@@ -840,14 +811,15 @@ const Home = () => {
                                 <div className="elementor-widget-wrap elementor-element-populated" >
                                   <div className="elementor-element elementor-element-774b677 elementor-widget elementor-widget-text-editor" data-id="774b677" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      Bringing crypto to
-                                      the world together </div>
+                                      Ready to Take Control of Your Crypto?
+                                    </div>
                                   </div>
                                   <div className="elementor-element elementor-element-9db2b7c elementor-widget elementor-widget-text-editor" data-id="9db2b7c" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
                                       The Toka Wallet lets you store your private keys on your
                                       card while maintaining easy access to them. </div>
-                                  </div>
+                                  </div>Sign up for FortiVault Wallet today and start managing, securing, and growing your digital assets with confidence. Experience seamless transactions, top-notch security, and a wide range of features designed to help you succeed in the world of cryptocurrency. Take action now and unlock the future of finance!
+
                                   <div className="elementor-element elementor-element-c92040a elementor-tablet-align-center elementor-align-center elementor-widget elementor-widget-button" data-id="c92040a" data-element_type="widget" data-widget_type="button.default" >
                                     <div className="elementor-widget-container" >
                                       <div className="elementor-button-wrapper" >
@@ -908,7 +880,7 @@ const Home = () => {
               </div>
               <div className="footer-bottom" >
                 <div className="footer-credits" >
-                  <p className="footer-copyright">Copyright ©2025 Toka. All rights reserved.
+                  <p className="footer-copyright">Copyright ©2025 fortivault. All rights reserved.
                   </p>{/* .footer-copyright */}
                 </div>{/* .footer-credits */}
 

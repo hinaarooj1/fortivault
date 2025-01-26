@@ -27,7 +27,8 @@ const TicketHeader = (props) => {
                                             </Link>
                                         </div>
                                         <div className="navbar-wrap main-menu m-auto d-none d-lg-flex">
-                                            <ul id="menu-1-8e54fb7" className="navigation"><li id="menu-item-1270" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-144 current_page_item menu-item-1270"><Link to="/" aria-current="page">Home</Link></li>
+                                            <ul id="menu-1-8e54fb7" className="navigation">
+
                                                 <li id="menu-item-1274" className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1274"><Link to="/dashboard" aria-current="page">Dashboard</Link></li>
                                                 <li id="menu-item-1275" className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1275"><Link to="/support" aria-current="page">Tickets</Link></li>
 
