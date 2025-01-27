@@ -232,7 +232,7 @@ const Home = () => {
                                   </div>
                                   <div className="elementor-element elementor-element-2304308 elementor-widget elementor-widget-text-editor" data-id={2304308} data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      joffering secure wallets, lightning-fast exchanges, and real-time market insights
+                                      offering secure wallets, lightning-fast exchanges, and real-time market insights
                                       we empower you to explore the crypto world with confidence and ease.
                                     </div>
                                   </div>
@@ -656,8 +656,7 @@ const Home = () => {
                       <div className="widget-content" >
                         <div className="textwidget" >
                           <h4><img src={LogoNew} style={{ width: "80px" }} alt="" /></h4>
-                          <p>Reinventing the way of creating websites, we aim to create&nbsp;the most
-                            master-peaced WordPress theme available on the market.</p>
+
                         </div>
                       </div>
                     </div>
@@ -668,8 +667,7 @@ const Home = () => {
                         <h4 className="widget-title">Contact Us</h4>
                         <div className="textwidget" >
                           <p>202 Helga Springs Rd, Crawford, TN 38554</p>
-                          <p>Call Us: <strong><a href="tel:800.275.8777" >800.275.8777</a></strong></p>
-                          <p><a href="mailto:alex@company.com" >alex@company.com</a></p>
+                          <p><a href="mailto:support@fortivault.io" >support@fortivault.io</a></p>
                         </div>
                       </div>
                     </div>
