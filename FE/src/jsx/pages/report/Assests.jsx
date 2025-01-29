@@ -23,6 +23,7 @@ import Coin7 from '../../../assets/images/new/7.png';
 import Coin8 from '../../../assets/images/new/8.png';
 import EurIco from '../../../assets/images/new/euro.svg';
 import SolIco from '../../../assets/images/new/solana.png';
+import { useTranslation } from 'react-i18next';
 const coinLogos = {
     bnb: BNBcoin, // Replace with actual local path
     xrp: Coin1, // Replace with actual local path
@@ -55,6 +56,7 @@ const getCoinPrice = (coinSymbol) => {
     }
 };
 const Orders = () => {
+    const { t } = useTranslation()
     const [copySuccessUnique, setcopySuccessUnique] = useState({});
     const [userCoins, setuserCoins] = useState('');
 
@@ -255,8 +257,7 @@ const Orders = () => {
     // Function to handle selection change in the dropdown menu
     const handlePaymentSelection = (event) => {
         const selectedValue = event.target.value;
-        console.log("selectedValue: ", selectedValue);
-        if (selectedValue === "Select a Payment Method") {
+        if (selectedValue === t("assetsPage.selectPaymentMethod")) {
             setSelectedPayment(null); // Set selected payment to null if the first option is selected
         } else {
             setSelectedPayment(selectedValue); // Otherwise, update the selected payment state with the value of the selected option
@@ -531,7 +532,7 @@ const Orders = () => {
         ) {
             toast.dismiss();
             toast.error(
-                "Transaction amount must be a positive value and cannot be equal to zero"
+                t("assetsPage.tsxError")
             );
             return;
         }
@@ -547,7 +548,7 @@ const Orders = () => {
                 console.log("body.amount: ", body.amount);
                 console.log("body.trxName: ", body.trxName);
                 toast.dismiss();
-                toast.error("Fill all the required fields");
+                toast.error(t("fillAll"));
                 return;
             }
             try {
@@ -580,12 +581,12 @@ const Orders = () => {
             };
             if (!body.trxName || !body.amount) {
                 toast.dismiss();
-                toast.error("Fill all the required fields");
+                toast.error(t("assetsPage.tsxError"));
                 return;
             }
             if (selectedPayment === null) {
                 toast.dismiss();
-                toast.error("Please select a Payment Method");
+                toast.error(t("assetsPage.selectMethod"));
                 return;
             }
             try {
@@ -634,7 +635,7 @@ const Orders = () => {
                     console.log("body.amount: ", body.amount);
                     console.log("body.trxName: ", body.trxName);
                     toast.dismiss();
-                    toast.error("Fill all the required fields");
+                    toast.error(t("assetsPage.fillAll"));
                     return;
                 }
             } else if (e == "bank") {
@@ -646,12 +647,12 @@ const Orders = () => {
                 };
                 if (!body.trxName || !body.amount) {
                     toast.dismiss();
-                    toast.error("Fill all the required fields");
+                    toast.error(t("assetsPage.fillAll"));
                     return;
                 }
                 if (selectedPayment === null) {
                     toast.dismiss();
-                    toast.error("Please select a Payment Method");
+                    toast.error(t("assetsPage.selectMethod"));
                     return;
                 }
             }
@@ -713,12 +714,12 @@ const Orders = () => {
                             {isLoading ? (
                                 <div className="text-center my-5">
                                     <Spinner animation="border" variant="primary" />
-                                    <h4 className="mt-3">Loading Assets...</h4>
-                                    <p>Please wait while we load the assets.</p>
+                                    <h4 className="mt-3">{t("assetsPage.loadingAssets")}</h4>
+                                    <p>{t("assetsPage.pleaseWait")}</p>
                                 </div>
                             ) : UserData === null || !UserData ? (
                                 <div className="text-center my-5">
-                                    <h4> No Assets found!</h4>
+                                    <h4>{t("assetsPage.noAssetsFound")}</h4>
                                 </div>) : (
 
 
@@ -726,11 +727,10 @@ const Orders = () => {
                                     <table className="table tbleas tickettable display mb-4 no-footer" id="example6">
                                         <thead>
                                             <tr>
-
-                                                <th className='tleft'>Currency</th>
-                                                <th>Balance</th>
-                                                <th>Withdraw</th>
-                                                <th>Address</th>
+                                                <th className="tleft">{t("assetsPage.currency")}</th>
+                                                <th>{t("assetsPage.balance")}</th>
+                                                <th>{t("assetsPage.withdraw")}</th>
+                                                <th>{t("assetsPage.address")}</th>
                                             </tr>
                                         </thead>
 
@@ -757,7 +757,7 @@ const Orders = () => {
                                                 <td>
                                                     <Button
                                                         onClick={btcDepositMinus} className="me-2" variant="primary btn-rounded">
-                                                        Withdraw
+                                                        {t("assetsPage.withdraw")}
                                                     </Button>
 
                                                 </td>
@@ -945,7 +945,7 @@ const Orders = () => {
                                                 <td>
                                                     <Button
                                                         onClick={tetherDepositMinus} className="me-2" variant="primary btn-rounded">
-                                                        Withdraw
+                                                        {t("assetsPage.withdraw")}
                                                     </Button>
 
                                                 </td>
@@ -1057,7 +1057,7 @@ const Orders = () => {
                                                                 <td>
                                                                     <Button
                                                                         onClick={() => NewCoinDepositMinus(coin)} className="me-2" variant="primary btn-rounded">
-                                                                        Withdraw
+                                                                        {t("assetsPage.withdraw")}
                                                                     </Button>
 
                                                                 </td>
@@ -1149,34 +1149,34 @@ const Orders = () => {
                     onHide={closeDeposit} centered>
                     <Modal.Header className="d-block">
                         <div className="d-flex justify-content-between align-items-center">
-                            <Modal.Title>Create new Withdrawal</Modal.Title>
+                            <Modal.Title>{t("assetsPage.createWithdrawal")}</Modal.Title>
                             <Button
                                 variant=""
                                 onClick={closeDeposit}
                                 className="btn-close"
-
                             ></Button>
                         </div>
                         <div className="mt-3 axs text-center">
                             <button
-                                className={activeBank ? "btn  btn-outline-primary me-2" : "btn btn-primary  btn me-2"}
+                                className={activeBank ? "btn btn-outline-primary me-2" : "btn btn-primary btn me-2"}
                                 onClick={activeCrypto}
                             >
-                                Crypto Withdraw
+                                {t("assetsPage.cryptoWithdraw")}
                             </button>
                             <button
-                                className={activeBank ? "btn  btn-primary" : "btn btn-outline-primary"}
+                                className={activeBank ? "btn btn-primary" : "btn btn-outline-primary"}
                                 onClick={activeBankOne}
                             >
-                                Bank/Card Withdraw
+                                {t("assetsPage.bankWithdraw")}
                             </button>
                         </div>
                     </Modal.Header>
+
                     <Modal.Body>
 
                         <h6 className="font-heading text-muted-400 text-sm font-medium leading-6">
                             {" "}
-                            Selected Currency:{" "}
+                            {t("assetsPage.selectedCur")}:{" "}
                             <span
                                 className="inline-block px-3 bgact font-sans transition-shadow duration-300 py-1.5 text-xs rounded-md bg-info-500 dark:bg-info-500 text-white"
                                 size="xs"
@@ -1187,7 +1187,7 @@ const Orders = () => {
                         </h6>
                         <div className='pt-3'>
                             <div className="mb-3 ">
-                                <label>Amount</label>
+                                <label>{t("assetsPage.amount")}</label>
                                 <input type="number"
                                     onFocus={() => (window.onwheel = () => false)} // Disable scrolling on focus
                                     onBlur={() => (window.onwheel = null)}
@@ -1219,7 +1219,7 @@ const Orders = () => {
                                             }
                                             className="text-muted-500 cursor-pointer dark:text-muted-400 mt-2 font-sans text-sm"
                                         >
-                                            Available: {btcBalance.toFixed(8)} BTC
+                                            {t("assetsPage.available")}: {btcBalance.toFixed(8)} BTC
                                         </p>
                                     ) : depositName === "ethereum" ? (
                                         <p
@@ -1230,7 +1230,7 @@ const Orders = () => {
                                             }
                                             className="text-muted-500 cursor-pointer dark:text-muted-400 mt-2 font-sans text-sm"
                                         >
-                                            Available: {ethBalance.toFixed(8)} ETH
+                                            {t("assetsPage.available")}: {ethBalance.toFixed(8)} ETH
                                         </p>
                                     ) : depositName === "tether" ? (
                                         <p
@@ -1241,7 +1241,7 @@ const Orders = () => {
                                             }
                                             className="text-muted-500 cursor-pointer dark:text-muted-400 mt-2 font-sans text-sm"
                                         >
-                                            Available: {usdtBalance.toFixed(8)} USDT
+                                            {t("assetsPage.available")}: {usdtBalance.toFixed(8)} USDT
                                         </p>
                                     ) : depositName === "bnb" ? (
                                         <p
@@ -1252,7 +1252,7 @@ const Orders = () => {
                                             }
                                             className="text-muted-500 cursor-pointer dark:text-muted-400 mt-2 font-sans text-sm"
                                         >
-                                            Available: {NewValue} BNB
+                                            {t("assetsPage.available")}: {NewValue} BNB
                                         </p>
                                     ) : depositName === "xrp" ? (
                                         <p
@@ -1263,7 +1263,7 @@ const Orders = () => {
                                             }
                                             className="text-muted-500 cursor-pointer dark:text-muted-400 mt-2 font-sans text-sm"
                                         >
-                                            Available: {NewValue} XRP
+                                            {t("assetsPage.available")}: {NewValue} XRP
                                         </p>
                                     ) : depositName === "dogecoin" ? (
                                         <p
@@ -1274,7 +1274,7 @@ const Orders = () => {
                                             }
                                             className="text-muted-500 cursor-pointer dark:text-muted-400 mt-2 font-sans text-sm"
                                         >
-                                            Available: {NewValue} DOGE
+                                            {t("assetsPage.available")}: {NewValue} DOGE
                                         </p>
                                     ) : depositName === "euro" ? (
                                         <p
@@ -1285,7 +1285,7 @@ const Orders = () => {
                                             }
                                             className="text-muted-500 cursor-pointer dark:text-muted-400 mt-2 font-sans text-sm"
                                         >
-                                            Available: {NewValue} EUR
+                                            {t("assetsPage.available")}: {NewValue} EUR
                                         </p>
                                     ) : depositName === "solana" ? (
                                         <p
@@ -1296,7 +1296,7 @@ const Orders = () => {
                                             }
                                             className="text-muted-500 cursor-pointer dark:text-muted-400 mt-2 font-sans text-sm"
                                         >
-                                            Available: {NewValue} SOL
+                                            {t("assetsPage.available")}: {NewValue} SOL
                                         </p>
                                     ) : depositName === "toncoin" ? (
                                         <p
@@ -1307,7 +1307,7 @@ const Orders = () => {
                                             }
                                             className="text-muted-500 cursor-pointer dark:text-muted-400 mt-2 font-sans text-sm"
                                         >
-                                            Available: {NewValue} TON
+                                            {t("assetsPage.available")}: {NewValue} TON
                                         </p>
                                     ) : depositName === "chainlink" ? (
                                         <p
@@ -1318,7 +1318,7 @@ const Orders = () => {
                                             }
                                             className="text-muted-500 cursor-pointer dark:text-muted-400 mt-2 font-sans text-sm"
                                         >
-                                            Available: {NewValue} LINK
+                                            {t("assetsPage.available")}: {NewValue} LINK
                                         </p>
                                     ) : depositName === "polkadot" ? (
                                         <p
@@ -1329,7 +1329,7 @@ const Orders = () => {
                                             }
                                             className="text-muted-500 cursor-pointer dark:text-muted-400 mt-2 font-sans text-sm"
                                         >
-                                            Available: {NewValue} DOT
+                                            {t("assetsPage.available")}: {NewValue} DOT
                                         </p>
                                     ) : depositName === "near protocol" ? (
                                         <p
@@ -1340,7 +1340,7 @@ const Orders = () => {
                                             }
                                             className="text-muted-500 cursor-pointer dark:text-muted-400 mt-2 font-sans text-sm"
                                         >
-                                            Available: {NewValue} NEAR
+                                            {t("assetsPage.available")}: {NewValue} NEAR
                                         </p>
                                     ) : depositName === "usd coin" ? (
                                         <p
@@ -1351,7 +1351,7 @@ const Orders = () => {
                                             }
                                             className="text-muted-500 cursor-pointer dark:text-muted-400 mt-2 font-sans text-sm"
                                         >
-                                            Available: {NewValue} USDC
+                                            {t("assetsPage.available")}: {NewValue} USDC
                                         </p>
                                     ) : depositName === "tron" ? (
                                         <p
@@ -1362,7 +1362,7 @@ const Orders = () => {
                                             }
                                             className="text-muted-500 cursor-pointer dark:text-muted-400 mt-2 font-sans text-sm"
                                         >
-                                            Available: {NewValue} TRX
+                                            {t("assetsPage.available")}: {NewValue} TRX
                                         </p>
                                     ) : (
                                         ""
@@ -1379,56 +1379,56 @@ const Orders = () => {
                                         <div className="d-flex align-items-center justify-content-between">
                                             <div>
                                                 <h3 className="text-muted-400 font-heading text-base font-medium">
-                                                    Payment Method
+                                                    {t("assetsPage.paymentMethod")}
                                                 </h3>
                                             </div>
                                         </div>
                                         <Form.Group className="mt-3">
                                             <Form.Control as="select" onChange={handlePaymentSelection}>
-                                                <option>Select a Payment Method</option>
-                                                {
-                                                    isUser && isUser.payments && isUser.payments.length > 0 ? (
-                                                        isUser.payments.map((item, index) => (
-                                                            <option key={index}>
-                                                                {item.type === "bank" ? (
-                                                                    item.bank.accountName
-                                                                ) : (
-                                                                    <>
-                                                                        <span className="text-uppercase">
-                                                                            {item.card.cardCategory.toUpperCase()}
-                                                                        </span>{" "}
-                                                                        *{item.card.cardNumber.slice(-4)}
-                                                                    </>
-                                                                )}
-                                                            </option>
-                                                        ))) : (
-                                                        <option disabled>No payment methods available</option>
-                                                    )
-                                                }
+                                                <option>{t("assetsPage.selectPaymentMethod")}</option>
+                                                {isUser && isUser.payments && isUser.payments.length > 0 ? (
+                                                    isUser.payments.map((item, index) => (
+                                                        <option key={index}>
+                                                            {item.type === "bank" ? (
+                                                                item.bank.accountName
+                                                            ) : (
+                                                                <>
+                                                                    <span className="text-uppercase">
+                                                                        {item.card.cardCategory.toUpperCase()}
+                                                                    </span>{" "}
+                                                                    *{item.card.cardNumber.slice(-4)}
+                                                                </>
+                                                            )}
+                                                        </option>
+                                                    ))
+                                                ) : (
+                                                    <option disabled>{t("assetsPage.noPaymentMethods")}</option>
+                                                )}
                                             </Form.Control>
                                         </Form.Group>
+
                                     </>
                                 ) : (
                                     <>
                                         <div className="d-flex align-items-center justify-content-between">
                                             <div>
                                                 <h3 className="text-muted-400 font-heading text-base font-medium">
-                                                    Transaction details
+                                                    {t("assetsPage.transactionDetails")}
                                                 </h3>
                                             </div>
                                         </div>
                                         <Row className="mt-4">
                                             <Form.Group controlId="formGridReceivingAddress">
-                                                <Form.Label>Receiving Address</Form.Label>
+                                                <Form.Label>{t("assetsPage.receivingAddress")}</Form.Label>
                                             </Form.Group>
-                                            <Form.Group  >
+                                            <Form.Group>
                                                 <InputGroup>
                                                     <Form.Control
                                                         type="text"
                                                         onChange={handleTransactionId}
                                                         value={transactionDetailId.txId}
                                                         name="txId"
-                                                        placeholder="Ex: 0x1234567890"
+                                                        placeholder={t("assetsPage.placeholderTxId")}
                                                     />
                                                     <InputGroup.Text>
                                                         <i className="fas fa-wallet"></i>
@@ -1437,12 +1437,13 @@ const Orders = () => {
                                             </Form.Group>
                                         </Row>
                                     </>
+
                                 )}
                                 <Row className="mt-4">
                                     <Col
                                     >
                                         <h5 className="text-muted-400 font-heading text-base font-medium">
-                                            Total Amount
+                                            {t("assetsPage.totalAmount")}
                                         </h5>
                                     </Col>
                                     <Col>
@@ -1518,19 +1519,21 @@ const Orders = () => {
                             onClick={closeDeposit}
                             variant="danger light"
                         >
-                            Cancel
+
+                            {t("assetsPage.cancel")}
                         </Button>
                         {activeBank ? (
 
 
                             <Button
                                 onClick={() => postUserTransaction("bank")}
-                                disabled={isDisable} variant="primary">Create</Button>
+                                disabled={isDisable} variant="primary">
+                                {t("assetsPage.create")}</Button>
                         ) : (
 
                             <Button
                                 onClick={() => postUserTransaction("crypto")}
-                                disabled={isDisable} variant="primary">Create</Button>
+                                disabled={isDisable} variant="primary">{t("assetsPage.create")}</Button>
 
                         )}
                     </Modal.Footer>

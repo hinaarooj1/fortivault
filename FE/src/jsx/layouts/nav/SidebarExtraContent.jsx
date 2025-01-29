@@ -6,11 +6,13 @@ import { useAuthUser, useSignOut } from "react-auth-kit";
 import { logoutApi, getsignUserApi, getCoinsUserApi } from "../../../Api/Service";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 // let path = window.location.pathname;
 // path = path.split("/");
 // path = path[path.length - 1];
 
 const SidebarExtraContent = () => {
+	const { t } = useTranslation()
 	const location = useLocation();
 	const [modal, setModal] = useState(false);
 	const [Description, setDescription] = useState("");
@@ -269,14 +271,14 @@ const SidebarExtraContent = () => {
 					{SVGICON.SideWalletSvgIcon}
 					<div className="ms-3">
 						<h4 className="text-white mb-0 d-block">{totalBalance === null ? "..." : totalBalance === 0 ? 0 : `${totalBalance}`} </h4>
-						<small>Available Funds</small>
+						<small>{t("header.availableFunds")}</small>
 					</div>
 				</div>
 				<div className="wallet-box">
 					{SVGICON.SideWalletSvgIcon}
 					<div className="ms-3">
 						<h4 className="text-white mb-0 d-block">{totalBalancePending === null ? "..." : totalBalance === 0 ? 0 : `${totalBalancePending}`} </h4>
-						<small> Total Pending</small>
+						<small> {t("header.totalPending")}</small>
 					</div>
 				</div>
 

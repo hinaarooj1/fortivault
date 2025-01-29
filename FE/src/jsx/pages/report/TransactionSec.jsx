@@ -11,10 +11,11 @@ import axios from 'axios';
 import { Button, Card, Col, Form, DropdownDivider, InputGroup, Modal, Row, Spinner } from 'react-bootstrap';
 import './style.css'
 import Truncate from 'react-truncate-inside/es';
+import { useTranslation } from 'react-i18next';
 
 
 const TransactionSec = () => {
-
+    const { t } = useTranslation()
     const [modal, setModal] = useState(false);
     const [isLoading, setisLoading] = useState(true);
     const [UserTransactions, setUserTransactions] = useState([]);
@@ -184,8 +185,8 @@ const TransactionSec = () => {
                             {isLoading ? (
                                 <div className="text-center my-5">
                                     <Spinner animation="border" variant="primary" />
-                                    <h4 className="mt-3"> Loading Transactions...</h4>
-                                    <p>Please wait while we load the  transactions.</p>
+                                    <h4 className="mt-3"> {t("transactionPage.loading")}...</h4>
+                                    <p>{t("transactionPage.pleaseWait")}.</p>
                                 </div>
                             ) : (
 
@@ -393,11 +394,13 @@ const TransactionSec = () => {
                                                         </div>
                                                         <div className="mx-auto max-w-sm">
                                                             <h4 className="font-heading text-xl font-medium leading-normal leading-normal text-muted-800 mb-1 mt-4 dark:text-white">
-                                                                No transactions found
+
+                                                                {t("transactionPage.notFound")}
                                                             </h4>
                                                             <p className="text-muted-400 font-sans text-sm">
-                                                                Try to change the filter or add a new
-                                                                transaction
+
+
+                                                                {t("transactionPage.tryChange")}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -422,14 +425,16 @@ const TransactionSec = () => {
             >
                 <Modal.Header closeButton>
                     <Modal.Title id="transaction-modal-title">
-                        Transaction Details
+
+                        {t("transactionPage.trxDetail")}
                     </Modal.Title>
                 </Modal.Header>
                 {singleTransaction.by === "user" ? (
                     <Modal.Body>
                         <dl className="row main-modal" >
                             <div className="col-sm-6">
-                                <dt className="text-muted">Transaction ID</dt>
+                                <dt className="text-muted">
+                                    {t("transactionPage.trxId")}</dt>
                                 <dd className="text-dark ">
                                     <a
                                         href="javascript:void(0)"
@@ -471,13 +476,13 @@ const TransactionSec = () => {
                                 </dd>
                             </div>
                             <div className="col-sm-6">
-                                <dt className="text-muted">Timestamp</dt>
+                                <dt className="text-muted"> {t("transactionPage.time")}</dt>
                                 <dd className="text-dark">
                                     {new Date(singleTransaction.createdAt).toLocaleString()}
                                 </dd>
                             </div>
                             <div className="col-sm-6">
-                                <dt className="text-muted">Value</dt>
+                                <dt className="text-muted"> {t("transactionPage.value")}</dt>
                                 <dd className="text-dark">
                                     <a
                                         href="javascript:void(0)"
@@ -528,24 +533,24 @@ const TransactionSec = () => {
                                 </dd>
                             </div>
                             <div className="col-sm-6">
-                                <dt className="text-muted">Status</dt>
+                                <dt className="text-muted">{t("transactionPage.status")}</dt>
                                 <dd className="text-dark">
                                     {singleTransaction.status === "pending" ? (
-                                        <span className="badge bg-warning text-dark">Pending</span>
+                                        <span className="badge bg-warning text-dark">{t("transactionPage.pending")}</span>
                                     ) : singleTransaction.status === "completed" ? (
-                                        <span className="badge bg-success text-white">Completed</span>
+                                        <span className="badge bg-success text-white">{t("transactionPage.completed")}</span>
                                     ) : singleTransaction.status === "failed" ? (
-                                        <span className="badge bg-danger text-white">Failed</span>
+                                        <span className="badge bg-danger text-white">{t("transactionPage.failed")}</span>
                                     ) : (
-                                        <span className="text-muted">Unknown</span>
+                                        <span className="text-muted">{t("transactionPage.unknown")}</span>
                                     )}
                                 </dd>
-
                             </div>
+
                             {singleTransaction.note ?
 
                                 <div className="col-sm-6">
-                                    <dt className="text-muted">Note</dt>
+                                    <dt className="text-muted">{t("transactionPage.note")}</dt>
                                     <dd className="text-dark">
 
 
@@ -556,7 +561,7 @@ const TransactionSec = () => {
                             {singleTransaction.reference ?
 
                                 <div className="col-sm-6">
-                                    <dt className="text-muted">Reference Number</dt>
+                                    <dt className="text-muted">{t("transactionPage.rfrNum")}</dt>
                                     <dd className="text-dark">
 
                                         <span className="text-muted ml-2">{singleTransaction.reference}</span>     <span onClick={handleCopySec} className="cursor-pointer ml-1">
@@ -580,7 +585,8 @@ const TransactionSec = () => {
                     <Modal.Body>
                         <dl className="row  main-modal">
                             <div className="col-md-6">
-                                <dt className="text-muted">Transaction ID</dt>
+                                <dt className="text-muted">
+                                    {t("transactionPage.trxId")}</dt>
                                 <dd>
                                     <a
                                         onClick={() => handleCopyToClipboard(singleTransaction._id)}
@@ -644,7 +650,7 @@ const TransactionSec = () => {
                                 </div>
                             )}
                             <div className="col-md-6">
-                                <dt className="text-muted">Timestamp</dt>
+                                <dt className="text-muted">{t("transactionPage.time")}</dt>
                                 <dd>{new Date(singleTransaction.createdAt).toLocaleString()}</dd>
                             </div>
                             {singleTransaction.fromAddress && (
@@ -691,7 +697,7 @@ const TransactionSec = () => {
                                 </div>
                             )}
                             <div className="col-md-6">
-                                <dt className="text-muted">Value</dt>
+                                <dt className="text-muted">{t("transactionPage.value")}</dt>
                                 <dd>
                                     <a
                                         href="javascript:void(0)"
@@ -741,24 +747,24 @@ const TransactionSec = () => {
                                     </a>
                                 </dd>
                             </div>
-                            <div className="col-md-6">
-                                <dt className="text-muted">Status</dt>
-                                <dd>
+                            <div className="col-sm-6">
+                                <dt className="text-muted">{t("transactionPage.status")}</dt>
+                                <dd className="text-dark">
                                     {singleTransaction.status === "pending" ? (
-                                        <span className="badge bg-warning text-dark">Pending</span>
+                                        <span className="badge bg-warning text-dark">{t("transactionPage.pending")}</span>
                                     ) : singleTransaction.status === "completed" ? (
-                                        <span className="badge bg-success text-light">Completed</span>
+                                        <span className="badge bg-success text-white">{t("transactionPage.completed")}</span>
                                     ) : singleTransaction.status === "failed" ? (
-                                        <span className="badge bg-danger text-light">Failed</span>
+                                        <span className="badge bg-danger text-white">{t("transactionPage.failed")}</span>
                                     ) : (
-                                        <span className="text-muted">Unknown</span>
+                                        <span className="text-muted">{t("transactionPage.unknown")}</span>
                                     )}
                                 </dd>
                             </div>
                             {singleTransaction.note ?
 
                                 <div className="col-sm-6">
-                                    <dt className="text-muted">Note</dt>
+                                    <dt className="text-muted">{t("transactionPage.note")}</dt>
                                     <dd className="text-dark">
 
 
@@ -769,7 +775,7 @@ const TransactionSec = () => {
                             {singleTransaction.reference ?
 
                                 <div className="col-sm-6">
-                                    <dt className="text-muted">Reference Number</dt>
+                                    <dt className="text-muted">{t("transactionPage.rfrNum")}</dt>
                                     <dd className="text-dark">
 
                                         <span className="text-muted ml-2">{singleTransaction.reference}</span>     <span onClick={handleCopySec} className="cursor-pointer ml-1">
@@ -793,7 +799,7 @@ const TransactionSec = () => {
 
                 <Modal.Footer>
                     <Button variant="secondary" onClick={toggleModalClose}>
-                        Close
+                        {t("transactionPage.close")}
                     </Button>
                 </Modal.Footer>
             </Modal>}

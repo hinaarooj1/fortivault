@@ -19,9 +19,12 @@ import Ethan from '../../../../assets/images/ethan.jpg'
 import Leo from '../../../../assets/images/leo.jpg'
 import Lily from '../../../../assets/images/lily.jpg'
 import Sophie from '../../../../assets/images/sophie.jpg'
-
+import { useTranslation } from "react-i18next";
+import franceflg from '../../../../assets/images/france.png'
+import usflg from '../../../../assets/images/united-states.png'
 
 const Home = () => {
+
   const sliderRef = useRef(null);
   const [openAccordion, setOpenAccordion] = useState(null);
 
@@ -30,63 +33,54 @@ const Home = () => {
   const toggleTab = (tabIndex) => {
     setActiveTab((prev) => (prev === tabIndex ? null : tabIndex));
   };
+  // 
+  const { i18n, t } = useTranslation();
+  const [language, setLanguage] = useState(localStorage.getItem("language") || "en");
 
+  useEffect(() => {
+    i18n.changeLanguage(language); // Apply stored language
+  }, [language, i18n]);
 
-
-  const toggleAccordion = (index) => {
-    setOpenAccordion(openAccordion === index ? null : index);
+  const handleLanguageChange = (lang) => {
+    setLanguage(lang);
+    setIsOpen(false);
+    localStorage.setItem("language", lang);
+    i18n.changeLanguage(lang);
   };
-  const settings = {
-
-    dots: true,
-    infinite: true,
-    speed: 500,
-    autoplay: true,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    arrows: false,
-    nextArrow: <button className="slider-arrow next-btn"><i className="fas fa-arrow-right"></i></button>,
-    prevArrow: <button className="slider-arrow prev-btn"><i className="fas fa-arrow-left"></i></button>,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-  const nextSlide = () => {
-    sliderRef.current.slickNext();
+  //  
+  const [isOpen, setIsOpen] = useState(false); // State to toggle dropdown visibility
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen); // Toggle dropdown visibility on click
   };
 
-  // Function to go to the previous slide
-  const prevSlide = () => {
-    sliderRef.current.slickPrev();
-  };
 
-  const [Bar, setBar] = useState(false);
-  const [Nav, setNav] = useState(false);
-  let toggleMenu = () => {
-    let body = document.querySelector("body")
-    body.classList.add('mobile-menu-visible')
-    setNav(true);
-    setBar(true);
-  };
-  let closeMenu = () => {
-    let body = document.querySelector("body")
-    body.classList.remove('mobile-menu-visible')
-    setNav(false);
-    setBar(false);
-  };
+
+  // useEffect(() => {
+  //   languages.forEach((lng) => {
+  //     const img = new Image();
+  //     img.src = lng.flag;
+  //   });
+  // }, []);
+  // const changeLanguage = (lng) => {
+  //   i18n.changeLanguage(lng);
+  //   localStorage.setItem("selectedLanguage", lng);
+  //   dispatch(setModal4({ isOpen: false, data: null }));
+  // };
+  // useEffect(() => {
+  //   const savedLanguage = localStorage.getItem("selectedLanguage");
+  //   if (savedLanguage && savedLanguage !== i18n.language) {
+  //     setTimeout(() => {
+  //       i18n.changeLanguage(savedLanguage);
+  //     }, 100);
+  //   }
+  // }, [i18n]);
+
+  // // Set Document Direction Based on Language
+  // useEffect(() => {
+  //   document.body.dir = i18n.dir();
+  // }, [i18n, i18n.language]);
+
+
   window.addEventListener("scroll", function () {
     // let header = this.document.querySelector("#sticky-header");
 
@@ -95,39 +89,33 @@ const Home = () => {
   const faqData = [
     {
       id: 1,
-      question: "What is FortiVault Wallet?",
-      answer:
-        "FortiVault Wallet is a secure, easy-to-use platform for managing, sending, and receiving cryptocurrencies. It supports multiple tokens and offers advanced security features to protect your digital assets.",
+      question: t("homePage.faq1Question"),
+      answer: t("homePage.faq1Answer"),
     },
     {
       id: 2,
-      question: "How do I get started?",
-      answer:
-        "Simply register online or download the Windows app, create an account, and follow the setup instructions. You'll be able to securely store, send, and receive a wide range of cryptocurrencies in just a few steps.",
+      question: t("homePage.faq2Question"),
+      answer: t("homePage.faq2Answer"),
     },
     {
       id: 3,
-      question: "Is my crypto safe in FortiVault Wallet?",
-      answer:
-        "Yes, your crypto is protected with top-level encryption, multi-layer authentication, and cold storage solutions, ensuring maximum security for your digital assets.",
+      question: t("homePage.faq3Question"),
+      answer: t("homePage.faq3Answer"),
     },
     {
       id: 4,
-      question: "What crypto is supported?",
-      answer:
-        "FortiVault Wallet supports a wide variety of cryptocurrencies, including Bitcoin, Ethereum, and many popular altcoins. Check our supported tokens list for the full range of assets you can store and manage.",
+      question: t("homePage.faq4Question"),
+      answer: t("homePage.faq4Answer"),
     },
     {
       id: 5,
-      question: "Can I stake my crypto in FortiVault Wallet?",
-      answer:
-        "Yes, FortiVault Wallet offers a simple staking option that allows you to earn rewards by staking your tokens directly within the app. Just choose your desired crypto, and start staking to maximize your returns.",
+      question: t("homePage.faq5Question"),
+      answer: t("homePage.faq5Answer"),
     },
     {
       id: 6,
-      question: "Can I connect my bank account or credit card to FortiVault Wallet?",
-      answer:
-        "Yes, FortiVault Wallet allows you to link your bank account or credit card for easy purchasing and transferring of cryptocurrencies. Enjoy a simple, secure way to fund your wallet and manage your assets.",
+      question: t("homePage.faq6Question"),
+      answer: t("homePage.faq6Answer"),
     },
   ];
 
@@ -143,9 +131,37 @@ const Home = () => {
             </div>
             <div style={{ display: 'flex', flexDirection: "row" }} className="collapse fldla navbar-collapse justify-content-end"   >
 
-
+              {/* Language Selector */}
+              <div className="language-dropdown">
+                <button className="language-button" onClick={toggleDropdown}>
+                  <img
+                    src={language === "en" ? usflg : franceflg}
+                    alt="Flag"
+                    className="flag-icon"
+                  />
+                  {language === "en" ? "English" : "Français"}
+                </button>
+                {isOpen && (
+                  <div className="language-dropdown-menu">
+                    <button
+                      onClick={() => handleLanguageChange("en")}
+                      className="language-option"
+                    >
+                      <img src={usflg} alt="English" className="flag-icon" />
+                      English
+                    </button>
+                    <button
+                      onClick={() => handleLanguageChange("fr")}
+                      className="language-option"
+                    >
+                      <img src={franceflg} alt="French" className="flag-icon" />
+                      Français
+                    </button>
+                  </div>
+                )}
+              </div>
               <div className="header-cta" ><Link to="/auth/login"  >
-                <div className="d-inline-block elementor-button-link elementor-button elementor-size-md" >Sign In</div>
+                <div className="d-inline-block elementor-button-link elementor-button elementor-size-md" >{t("homePage.signin")} </div>
               </Link></div>
             </div>
           </div>
@@ -167,18 +183,19 @@ const Home = () => {
 
                           <div className="elementor-element elementor-element-b53c240 elementor-widget elementor-widget-text-editor" data-id="b53c240" data-element_type="widget" data-widget_type="text-editor.default" >
                             <div className="elementor-widget-container" >
-                              The Ultimate Crypto Wallet  </div>
+                              {t("homePage.theUltimate")}  </div>
                           </div>
                           <div className="elementor-element elementor-element-bcb0398 elementor-widget elementor-widget-text-editor" data-id="bcb0398" data-element_type="widget" data-widget_type="text-editor.default" >
                             <div className="elementor-widget-container" >
-                              Protecting your digital assets with unmatched security and ease of use. </div>
+                              {t("homePage.protectYour")}
+                            </div>
                           </div>
                           <div className="elementor-element elementor-element-2dcc85d elementor-tablet-align-center elementor-widget elementor-widget-button" data-id="2dcc85d" data-element_type="widget" data-widget_type="button.default" >
                             <div className="elementor-widget-container" >
                               <div className="elementor-button-wrapper" >
                                 <Link className="elementor-button elementor-button-link elementor-size-xl elementor-animation-float" to="/auth/signup" >
                                   <span className="elementor-button-content-wrapper">
-                                    <span className="elementor-button-text">Start now</span>
+                                    <span className="elementor-button-text"> {t("homePage.startNow")}</span>
                                   </span>
                                 </Link>
                               </div>
@@ -223,17 +240,20 @@ const Home = () => {
                                 <div className="elementor-widget-wrap elementor-element-populated" >
                                   <div className="elementor-element elementor-element-eeeaa9b elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-id="eeeaa9b" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      Backed by Leading Blockchain Investors </div>
+
+                                      {t("homePage.backedBy")}
+                                    </div>
                                   </div>
                                   <div className="elementor-element elementor-element-cbf5029 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="cbf5029" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      A trusted platform built to streamline   your cryptocurrency journey
+                                      {t("homePage.aTrustedPlatform")}
+
                                     </div>
                                   </div>
                                   <div className="elementor-element elementor-element-2304308 elementor-widget elementor-widget-text-editor" data-id={2304308} data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      offering secure wallets, lightning-fast exchanges, and real-time market insights
-                                      we empower you to explore the crypto world with confidence and ease.
+                                      {t("homePage.offeringSecure")}
+
                                     </div>
                                   </div>
 
@@ -242,32 +262,30 @@ const Home = () => {
                             </div>
                           </section>
                           <section className="elementor-section elementor-inner-section elementor-element elementor-element-2822b86 elementor-reverse-tablet elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2822b86" data-element_type="section">
-                            <div className="elementor-container elementor-column-gap-default" >
-                              <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-a2a185f animated fadeIn" data-id="a2a185f" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_delay&quot;:200}" >
-                                <div className="elementor-widget-wrap elementor-element-populated" >
-                                  <div className="elementor-element elementor-element-509a20d elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-id="509a20d" data-element_type="widget" data-widget_type="text-editor.default" >
-                                    <div className="elementor-widget-container" >
-                                      Uncompromising Security  </div>
-                                  </div>
-                                  <div className="elementor-element elementor-element-98160a8 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="98160a8" data-element_type="widget" data-widget_type="text-editor.default" >
-                                    <div className="elementor-widget-container" >
-                                      Backup with ultra-high security
+                            <div className="elementor-container elementor-column-gap-default">
+                              <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-a2a185f animated fadeIn" data-id="a2a185f" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_delay&quot;:200}">
+                                <div className="elementor-widget-wrap elementor-element-populated">
+                                  <div className="elementor-element elementor-element-509a20d elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-id="509a20d" data-element_type="widget" data-widget_type="text-editor.default">
+                                    <div className="elementor-widget-container">
+                                      {t("homePage.uncompromising")}
                                     </div>
                                   </div>
-                                  <div className="elementor-element elementor-element-938b44e elementor-widget elementor-widget-text-editor" data-id="938b44e" data-element_type="widget" data-widget_type="text-editor.default" >
-                                    <div className="elementor-widget-container" >
-                                      We prioritizes your safety with advanced encryption,
-                                      multi-layer authentication, and cold storage solutions.
-                                      Rest assured, your digital assets are protected.
+                                  <div className="elementor-element elementor-element-98160a8 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="98160a8" data-element_type="widget" data-widget_type="text-editor.default">
+                                    <div className="elementor-widget-container">
+                                      {t("homePage.backupSecurity")}
                                     </div>
                                   </div>
-                                  <div className="elementor-element elementor-element-c22a729 elementor-tablet-align-center elementor-widget elementor-widget-button" data-id="c22a729" data-element_type="widget" data-widget_type="button.default" >
-                                    <div className="elementor-widget-container" >
-                                      <div className="elementor-button-wrapper" >
-                                        <Link className="elementor-button elementor-button-link elementor-size-xl elementor-animation-float" to="/auth/signup" >
+                                  <div className="elementor-element elementor-element-938b44e elementor-widget elementor-widget-text-editor" data-id="938b44e" data-element_type="widget" data-widget_type="text-editor.default">
+                                    <div className="elementor-widget-container">
+                                      {t("homePage.prioritizesSafety")}
+                                    </div>
+                                  </div>
+                                  <div className="elementor-element elementor-element-c22a729 elementor-tablet-align-center elementor-widget elementor-widget-button" data-id="c22a729" data-element_type="widget" data-widget_type="button.default">
+                                    <div className="elementor-widget-container">
+                                      <div className="elementor-button-wrapper">
+                                        <Link className="elementor-button elementor-button-link elementor-size-xl elementor-animation-float" to="/auth/signup">
                                           <span className="elementor-button-content-wrapper">
-                                            <span className="elementor-button-text">Start
-                                              now</span>
+                                            <span className="elementor-button-text">{t("homePage.startNow")}</span>
                                           </span>
                                         </Link>
                                       </div>
@@ -275,10 +293,10 @@ const Home = () => {
                                   </div>
                                 </div>
                               </div>
-                              <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-6471cde animated fadeIn" data-id="6471cde" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;background_background&quot;:&quot;classic&quot;}" >
-                                <div className="elementor-widget-wrap elementor-element-populated" >
-                                  <div className="elementor-element elementor-element-386ebce elementor-widget__width-auto elementor-widget elementor-widget-image" data-id="386ebce" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="image.default" >
-                                    <div className="elementor-widget-container" >
+                              <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-6471cde animated fadeIn" data-id="6471cde" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+                                <div className="elementor-widget-wrap elementor-element-populated">
+                                  <div className="elementor-element elementor-element-386ebce elementor-widget__width-auto elementor-widget elementor-widget-image" data-id="386ebce" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="image.default">
+                                    <div className="elementor-widget-container">
                                       <img loading="lazy" decoding="async" width={867} height={1024} src="https://toka.peerduck.com/wp-content/uploads/2022/11/eygfve-867x1024.png" className="attachment-large size-large wp-image-23422" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/eygfve-867x1024.png 867w, https://toka.peerduck.com/wp-content/uploads/2022/11/eygfve-254x300.png 254w, https://toka.peerduck.com/wp-content/uploads/2022/11/eygfve-768x907.png 768w, https://toka.peerduck.com/wp-content/uploads/2022/11/eygfve-600x709.png 600w, https://toka.peerduck.com/wp-content/uploads/2022/11/eygfve.png 1200w" sizes="(max-width: 867px) 100vw, 867px" />
                                     </div>
                                   </div>
@@ -286,6 +304,7 @@ const Home = () => {
                               </div>
                             </div>
                           </section>
+
                         </div>
                       </div>
                     </div>
@@ -296,46 +315,136 @@ const Home = () => {
                       <div className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-84fb7ba" data-id="84fb7ba" data-element_type="column" >
                         <div className="elementor-widget-wrap elementor-element-populated" >
                           <section className="elementor-section elementor-inner-section elementor-element elementor-element-51fcf7f elementor-section-boxed elementor-section-height-default elementor-section-height-default animated fadeIn" data-id="51fcf7f" data-element_type="section" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_delay&quot;:100}">
-                            <div className="elementor-container elementor-column-gap-no" >
-                              <div className="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-ced4232" data-id="ced4232" data-element_type="column" >
-                                <div className="elementor-widget-wrap elementor-element-populated" >
-                                  <div className="elementor-element elementor-element-965343f elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-id="965343f" data-element_type="widget" data-widget_type="text-editor.default" >
-                                    <div className="elementor-widget-container" >
-                                      Main Features </div>
-                                  </div>
-                                  <div className="elementor-element elementor-element-0c882c7 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="0c882c7" data-element_type="widget" data-widget_type="heading.default" >
-                                    <div className="elementor-widget-container" >
-                                      <style dangerouslySetInnerHTML={{ __html: "\n                                                                    /*! elementor - v3.21.0 - 24-04-2024 */\n                                                                    .elementor-heading-title {\n                                                                        padding: 0;\n                                                                        margin: 0;\n                                                                        line-height: 1\n                                                                    }\n\n                                                                    .elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a {\n                                                                        color: inherit;\n                                                                        font-size: inherit;\n                                                                        line-height: inherit\n                                                                    }\n\n                                                                    .elementor-widget-heading .elementor-heading-title.elementor-size-small {\n                                                                        font-size: 15px\n                                                                    }\n\n                                                                    .elementor-widget-heading .elementor-heading-title.elementor-size-medium {\n                                                                        font-size: 19px\n                                                                    }\n\n                                                                    .elementor-widget-heading .elementor-heading-title.elementor-size-large {\n                                                                        font-size: 29px\n                                                                    }\n\n                                                                    .elementor-widget-heading .elementor-heading-title.elementor-size-xl {\n                                                                        font-size: 39px\n                                                                    }\n\n                                                                    .elementor-widget-heading .elementor-heading-title.elementor-size-xxl {\n                                                                        font-size: 59px\n                                                                    }\n                                                                " }} />
-                                      <h2 className="elementor-heading-title elementor-size-default">
-                                        A new generation wallet</h2>
+                            <div className="elementor-container elementor-column-gap-no">
+                              <div className="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-ced4232" data-id="ced4232" data-element_type="column">
+                                <div className="elementor-widget-wrap elementor-element-populated">
+                                  <div className="elementor-element elementor-element-965343f elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-id="965343f" data-element_type="widget" data-widget_type="text-editor.default">
+                                    <div className="elementor-widget-container">
+                                      {t("homePage.mainFeatures")}
                                     </div>
                                   </div>
-                                  <div className="elementor-element elementor-element-270179f elementor-widget elementor-widget-text-editor" data-id="270179f" data-element_type="widget" data-widget_type="text-editor.default" >
-                                    <div className="elementor-widget-container" >
-                                      Experience the ultimate combination of security, simplicity, and speed for all your crypto needs. </div>
+                                  <div className="elementor-element elementor-element-0c882c7 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="0c882c7" data-element_type="widget" data-widget_type="heading.default">
+                                    <div className="elementor-widget-container">
+                                      <h2 className="elementor-heading-title elementor-size-default">
+                                        {t("homePage.newGenerationWallet")}
+                                      </h2>
+                                    </div>
+                                  </div>
+                                  <div className="elementor-element elementor-element-270179f elementor-widget elementor-widget-text-editor" data-id="270179f" data-element_type="widget" data-widget_type="text-editor.default">
+                                    <div className="elementor-widget-container">
+                                      {t("homePage.experienceSecurity")}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </section>
+
                           <section className="elementor-section elementor-inner-section elementor-element elementor-element-1eb3ef6 elementor-section-full_width elementor-section-height-default elementor-section-height-default animated fadeIn" data-id="1eb3ef6" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;,&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_delay&quot;:100}">
                             <div className="elementor-container elementor-column-gap-default" >
                               <div className="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-c496e1d" data-id="c496e1d" data-element_type="column" >
                                 <div className="elementor-widget-wrap elementor-element-populated" >
                                   <section className="elementor-section elementor-inner-section elementor-element elementor-element-e464b44 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e464b44" data-element_type="section">
-                                    <div className="elementor-container elementor-column-gap-default" >
-                                      <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-ef5e75a" data-id="ef5e75a" data-element_type="column" >
-                                        <div className="elementor-widget-wrap elementor-element-populated" >
-                                          <div className="elementor-element elementor-element-dcb275e elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="dcb275e" data-element_type="widget" data-widget_type="image-box.default" >
-                                            <div className="elementor-widget-container" >
-                                              <style dangerouslySetInnerHTML={{ __html: "\n                                                                                    /*! elementor - v3.21.0 - 24-04-2024 */\n                                                                                    .elementor-widget-image-box .elementor-image-box-content {\n                                                                                        width: 100%\n                                                                                    }\n\n                                                                                    @media (min-width:768px) {\n\n                                                                                        .elementor-widget-image-box.elementor-position-left .elementor-image-box-wrapper,\n                                                                                        .elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper {\n                                                                                            display: flex\n                                                                                        }\n\n                                                                                        .elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper {\n                                                                                            text-align: end;\n                                                                                            flex-direction: row-reverse\n                                                                                        }\n\n                                                                                        .elementor-widget-image-box.elementor-position-left .elementor-image-box-wrapper {\n                                                                                            text-align: start;\n                                                                                            flex-direction: row\n                                                                                        }\n\n                                                                                        .elementor-widget-image-box.elementor-position-top .elementor-image-box-img {\n                                                                                            margin: auto\n                                                                                        }\n\n                                                                                        .elementor-widget-image-box.elementor-vertical-align-top .elementor-image-box-wrapper {\n                                                                                            align-items: flex-start\n                                                                                        }\n\n                                                                                        .elementor-widget-image-box.elementor-vertical-align-middle .elementor-image-box-wrapper {\n                                                                                            align-items: center\n                                                                                        }\n\n                                                                                        .elementor-widget-image-box.elementor-vertical-align-bottom .elementor-image-box-wrapper {\n                                                                                            align-items: flex-end\n                                                                                        }\n                                                                                    }\n\n                                                                                    @media (max-width:767px) {\n                                                                                        .elementor-widget-image-box .elementor-image-box-img {\n                                                                                            margin-left: auto !important;\n                                                                                            margin-right: auto !important;\n                                                                                            margin-bottom: 15px\n                                                                                        }\n                                                                                    }\n\n                                                                                    .elementor-widget-image-box .elementor-image-box-img {\n                                                                                        display: inline-block\n                                                                                    }\n\n                                                                                    .elementor-widget-image-box .elementor-image-box-title a {\n                                                                                        color: inherit\n                                                                                    }\n\n                                                                                    .elementor-widget-image-box .elementor-image-box-wrapper {\n                                                                                        text-align: center\n                                                                                    }\n\n                                                                                    .elementor-widget-image-box .elementor-image-box-description {\n                                                                                        margin: 0\n                                                                                    }\n                                                                                " }} />
-                                              <div className="elementor-image-box-wrapper" >
+                                    <div className="elementor-container elementor-column-gap-default">
+                                      {/* User-Friendly Design */}
+                                      <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-ef5e75a" data-id="ef5e75a" data-element_type="column">
+                                        <div className="elementor-widget-wrap elementor-element-populated">
+                                          <div className="elementor-element elementor-element-dcb275e elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="dcb275e" data-element_type="widget" data-widget_type="image-box.default">
+                                            <div className="elementor-widget-container">
+                                              <div className="elementor-image-box-wrapper">
                                                 <figure className="elementor-image-box-img">
-                                                  <img loading="lazy" decoding="async" width={160} height={160} src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png" className="attachment-full size-full wp-image-23481" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png 160w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-150x150.png 150w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-100x100.png 100w" sizes="(max-width: 160px) 100vw, 160px" />
+                                                  <img loading="lazy" decoding="async" width={160} height={160} src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png" alt="" />
                                                 </figure>
-                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">User-Friendly Design</span>
+                                                <div className="elementor-image-box-content">
+                                                  <span className="elementor-image-box-title">{t("homePage.features.userFriendly")}</span>
+                                                  <p className="elementor-image-box-description">{t("homePage.features.userFriendlyDesc")}</p>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      {/* Top-Tier Security */}
+                                      <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-c7b39fd" data-id="c7b39fd" data-element_type="column">
+                                        <div className="elementor-widget-wrap elementor-element-populated">
+                                          <div className="elementor-element elementor-element-4289a80 elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="4289a80" data-element_type="widget" data-widget_type="image-box.default">
+                                            <div className="elementor-widget-container">
+                                              <div className="elementor-image-box-wrapper">
+                                                <figure className="elementor-image-box-img">
+                                                  <img loading="lazy" decoding="async" width={160} height={160} src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png" alt="" />
+                                                </figure>
+                                                <div className="elementor-image-box-content">
+                                                  <span className="elementor-image-box-title">{t("homePage.features.security")}</span>
+                                                  <p className="elementor-image-box-description">{t("homePage.features.securityDesc")}</p>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      {/* Password Protection */}
+                                      <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-c806738" data-id="c806738" data-element_type="column">
+                                        <div className="elementor-widget-wrap elementor-element-populated">
+                                          <div className="elementor-element elementor-element-d1347bb elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="d1347bb" data-element_type="widget" data-widget_type="image-box.default">
+                                            <div className="elementor-widget-container">
+                                              <div className="elementor-image-box-wrapper">
+                                                <figure className="elementor-image-box-img">
+                                                  <img loading="lazy" decoding="async" width={160} height={160} src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png" alt="" />
+                                                </figure>
+                                                <div className="elementor-image-box-content">
+                                                  <span className="elementor-image-box-title">{t("homePage.features.passwordProtection")}</span>
+                                                  <p className="elementor-image-box-description">{t("homePage.features.passwordProtectionDesc")}</p>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </section>
+
+
+                                  <section
+                                    className="elementor-section elementor-inner-section elementor-element elementor-element-1b5e8d8 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                    data-id="1b5e8d8"
+                                    data-element_type="section"
+                                  >
+                                    <div className="elementor-container elementor-column-gap-default">
+                                      <div
+                                        className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-c1a0b28"
+                                        data-id="c1a0b28"
+                                        data-element_type="column"
+                                      >
+                                        <div className="elementor-widget-wrap elementor-element-populated">
+                                          <div
+                                            className="elementor-element elementor-element-1d9315d elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box"
+                                            data-id="1d9315d"
+                                            data-element_type="widget"
+                                            data-widget_type="image-box.default"
+                                          >
+                                            <div className="elementor-widget-container">
+                                              <div className="elementor-image-box-wrapper">
+                                                <figure className="elementor-image-box-img">
+                                                  <img
+                                                    loading="lazy"
+                                                    decoding="async"
+                                                    width={160}
+                                                    height={160}
+                                                    src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png"
+                                                    className="attachment-full size-full wp-image-23481"
+                                                    alt=""
+                                                    srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png 160w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-150x150.png 150w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-100x100.png 100w"
+                                                    sizes="(max-width: 160px) 100vw, 160px"
+                                                  />
+                                                </figure>
+                                                <div className="elementor-image-box-content">
+                                                  <span className="elementor-image-box-title">
+                                                    {t("homePage.multiToken")}
+                                                  </span>
                                                   <p className="elementor-image-box-description">
-                                                    Effortlessly manage your crypto with an intuitive interface.
+                                                    {t("homePage.multiTokenDescription")}
                                                   </p>
                                                 </div>
                                               </div>
@@ -343,18 +452,40 @@ const Home = () => {
                                           </div>
                                         </div>
                                       </div>
-                                      <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-c7b39fd" data-id="c7b39fd" data-element_type="column" >
-                                        <div className="elementor-widget-wrap elementor-element-populated" >
-                                          <div className="elementor-element elementor-element-4289a80 elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="4289a80" data-element_type="widget" data-widget_type="image-box.default" >
-                                            <div className="elementor-widget-container" >
-                                              <div className="elementor-image-box-wrapper" >
-                                                <figure className="elementor-image-box-img">
-                                                  <img loading="lazy" decoding="async" width={160} height={160} src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png" className="attachment-full size-full wp-image-23481" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png 160w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-150x150.png 150w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-100x100.png 100w" sizes="(max-width: 160px) 100vw, 160px" />
-                                                </figure>
-                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">Top-Tier Security </span>
-                                                  <p className="elementor-image-box-description">
 
-                                                    Advanced encryption to safeguard your digital assets.
+                                      <div
+                                        className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-d0a9de6"
+                                        data-id="d0a9de6"
+                                        data-element_type="column"
+                                      >
+                                        <div className="elementor-widget-wrap elementor-element-populated">
+                                          <div
+                                            className="elementor-element elementor-element-5e983ee elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box"
+                                            data-id="5e983ee"
+                                            data-element_type="widget"
+                                            data-widget_type="image-box.default"
+                                          >
+                                            <div className="elementor-widget-container">
+                                              <div className="elementor-image-box-wrapper">
+                                                <figure className="elementor-image-box-img">
+                                                  <img
+                                                    loading="lazy"
+                                                    decoding="async"
+                                                    width={160}
+                                                    height={160}
+                                                    src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png"
+                                                    className="attachment-full size-full wp-image-23481"
+                                                    alt=""
+                                                    srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png 160w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-150x150.png 150w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-100x100.png 100w"
+                                                    sizes="(max-width: 160px) 100vw, 160px"
+                                                  />
+                                                </figure>
+                                                <div className="elementor-image-box-content">
+                                                  <span className="elementor-image-box-title">
+                                                    {t("homePage.unmatchedSafety")}
+                                                  </span>
+                                                  <p className="elementor-image-box-description">
+                                                    {t("homePage.unmatchedSafetyDescription")}
                                                   </p>
                                                 </div>
                                               </div>
@@ -362,19 +493,40 @@ const Home = () => {
                                           </div>
                                         </div>
                                       </div>
-                                      <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-c806738" data-id="c806738" data-element_type="column" >
-                                        <div className="elementor-widget-wrap elementor-element-populated" >
-                                          <div className="elementor-element elementor-element-d1347bb elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="d1347bb" data-element_type="widget" data-widget_type="image-box.default" >
-                                            <div className="elementor-widget-container" >
-                                              <div className="elementor-image-box-wrapper" >
-                                                <figure className="elementor-image-box-img">
-                                                  <img loading="lazy" decoding="async" width={160} height={160} src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png" className="attachment-full size-full wp-image-23481" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png 160w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-150x150.png 150w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-100x100.png 100w" sizes="(max-width: 160px) 100vw, 160px" />
-                                                </figure>
-                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">Password
-                                                  protection</span>
-                                                  <p className="elementor-image-box-description">
 
-                                                    Secure access with robust, customizable password options.
+                                      <div
+                                        className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-e47aa9c"
+                                        data-id="e47aa9c"
+                                        data-element_type="column"
+                                      >
+                                        <div className="elementor-widget-wrap elementor-element-populated">
+                                          <div
+                                            className="elementor-element elementor-element-4c457de elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box"
+                                            data-id="4c457de"
+                                            data-element_type="widget"
+                                            data-widget_type="image-box.default"
+                                          >
+                                            <div className="elementor-widget-container">
+                                              <div className="elementor-image-box-wrapper">
+                                                <figure className="elementor-image-box-img">
+                                                  <img
+                                                    loading="lazy"
+                                                    decoding="async"
+                                                    width={160}
+                                                    height={160}
+                                                    src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png"
+                                                    className="attachment-full size-full wp-image-23481"
+                                                    alt=""
+                                                    srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png 160w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-150x150.png 150w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-100x100.png 100w"
+                                                    sizes="(max-width: 160px) 100vw, 160px"
+                                                  />
+                                                </figure>
+                                                <div className="elementor-image-box-content">
+                                                  <span className="elementor-image-box-title">
+                                                    {t("homePage.stakingPlus")}
+                                                  </span>
+                                                  <p className="elementor-image-box-description">
+                                                    {t("homePage.stakingPlusDescription")}
                                                   </p>
                                                 </div>
                                               </div>
@@ -384,64 +536,7 @@ const Home = () => {
                                       </div>
                                     </div>
                                   </section>
-                                  <section className="elementor-section elementor-inner-section elementor-element elementor-element-1b5e8d8 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1b5e8d8" data-element_type="section">
-                                    <div className="elementor-container elementor-column-gap-default" >
-                                      <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-c1a0b28" data-id="c1a0b28" data-element_type="column" >
-                                        <div className="elementor-widget-wrap elementor-element-populated" >
-                                          <div className="elementor-element elementor-element-1d9315d elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="1d9315d" data-element_type="widget" data-widget_type="image-box.default" >
-                                            <div className="elementor-widget-container" >
-                                              <div className="elementor-image-box-wrapper" >
-                                                <figure className="elementor-image-box-img">
-                                                  <img loading="lazy" decoding="async" width={160} height={160} src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png" className="attachment-full size-full wp-image-23481" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png 160w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-150x150.png 150w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-100x100.png 100w" sizes="(max-width: 160px) 100vw, 160px" />
-                                                </figure>
-                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">Multi-Token</span>
-                                                  <p className="elementor-image-box-description">
-                                                    Store, send, and Stake a wide variety of cryptocurrencies.
-                                                  </p>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-d0a9de6" data-id="d0a9de6" data-element_type="column" >
-                                        <div className="elementor-widget-wrap elementor-element-populated" >
-                                          <div className="elementor-element elementor-element-5e983ee elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="5e983ee" data-element_type="widget" data-widget_type="image-box.default" >
-                                            <div className="elementor-widget-container" >
-                                              <div className="elementor-image-box-wrapper" >
-                                                <figure className="elementor-image-box-img">
-                                                  <img loading="lazy" decoding="async" width={160} height={160} src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png" className="attachment-full size-full wp-image-23481" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png 160w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-150x150.png 150w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-100x100.png 100w" sizes="(max-width: 160px) 100vw, 160px" />
-                                                </figure>
-                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">Unmatched Safety</span>
-                                                  <p className="elementor-image-box-description">
-                                                    Cold storage solutions to keep your funds secure from threats.
-                                                  </p>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-e47aa9c" data-id="e47aa9c" data-element_type="column" >
-                                        <div className="elementor-widget-wrap elementor-element-populated" >
-                                          <div className="elementor-element elementor-element-4c457de elementor-position-left elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="4c457de" data-element_type="widget" data-widget_type="image-box.default" >
-                                            <div className="elementor-widget-container" >
-                                              <div className="elementor-image-box-wrapper" >
-                                                <figure className="elementor-image-box-img">
-                                                  <img loading="lazy" decoding="async" width={160} height={160} src="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png" className="attachment-full size-full wp-image-23481" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb.png 160w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-150x150.png 150w, https://toka.peerduck.com/wp-content/uploads/2022/11/ewfvrb-100x100.png 100w" sizes="(max-width: 160px) 100vw, 160px" />
-                                                </figure>
-                                                <div className="elementor-image-box-content" ><span className="elementor-image-box-title">Staking+</span>
-                                                  <p className="elementor-image-box-description">
-                                                    Earn rewards by staking your tokens directly in the wallet.
-                                                  </p>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </section>
+
                                 </div>
                               </div>
                             </div>
@@ -450,68 +545,71 @@ const Home = () => {
                       </div>
                     </div>
                   </section>
+
+
                   <section className="elementor-section elementor-top-section elementor-element elementor-element-01dd347 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="01dd347" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                     <div className="elementor-background-overlay" />
-                    <div className="elementor-container elementor-column-gap-default" >
-                      <div className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d3dea06" data-id="d3dea06" data-element_type="column" >
-                        <div className="elementor-widget-wrap elementor-element-populated" >
+                    <div className="elementor-container elementor-column-gap-default">
+                      <div className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d3dea06" data-id="d3dea06" data-element_type="column">
+                        <div className="elementor-widget-wrap elementor-element-populated">
                           <section className="elementor-section elementor-inner-section elementor-element elementor-element-d862441 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="d862441" data-element_type="section">
-                            <div className="elementor-container elementor-column-gap-default" >
-                              <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-678334d animated fadeIn" data-id="678334d" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_delay&quot;:200}" >
-                                <div className="elementor-widget-wrap elementor-element-populated" >
-                                  <div className="elementor-element elementor-element-4bde5b0 elementor-widget elementor-widget-image" data-id="4bde5b0" data-element_type="widget" data-widget_type="image.default" >
-                                    <div className="elementor-widget-container" >
-                                      <img loading="lazy" decoding="async" width={890} height={1024} src="https://toka.peerduck.com/wp-content/uploads/2022/11/efvhjef-890x1024.png" className="attachment-large size-large wp-image-23512" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/efvhjef-890x1024.png 890w, https://toka.peerduck.com/wp-content/uploads/2022/11/efvhjef-261x300.png 261w, https://toka.peerduck.com/wp-content/uploads/2022/11/efvhjef-768x883.png 768w, https://toka.peerduck.com/wp-content/uploads/2022/11/efvhjef-600x690.png 600w, https://toka.peerduck.com/wp-content/uploads/2022/11/efvhjef.png 931w" sizes="(max-width: 890px) 100vw, 890px" />
+                            <div className="elementor-container elementor-column-gap-default">
+                              <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-678334d animated fadeIn" data-id="678334d" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_delay&quot;:200}">
+                                <div className="elementor-widget-wrap elementor-element-populated">
+                                  <div className="elementor-element elementor-element-4bde5b0 elementor-widget elementor-widget-image" data-id="4bde5b0" data-element_type="widget" data-widget_type="image.default">
+                                    <div className="elementor-widget-container">
+                                      <img loading="lazy" decoding="async" width={890} height={1024} src="https://toka.peerduck.com/wp-content/uploads/2022/11/efvhjef-890x1024.png" className="attachment-large size-large wp-image-23512" alt="" />
                                     </div>
                                   </div>
                                 </div>
                               </div>
-                              <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-d32966a animated fadeIn" data-id="d32966a" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;}" >
-                                <div className="elementor-widget-wrap elementor-element-populated" >
-                                  <div className="elementor-element elementor-element-fad5859 elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-id="fad5859" data-element_type="widget" data-widget_type="text-editor.default" >
-                                    <div className="elementor-widget-container" >
-                                      More possibilities </div>
-                                  </div>
-                                  <div className="elementor-element elementor-element-49f092c elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="49f092c" data-element_type="widget" data-widget_type="text-editor.default" >
-                                    <div className="elementor-widget-container" >
-                                      Stake, swap and trade in one place </div>
-                                  </div>
-                                  <div className="elementor-element elementor-element-1e475b5 elementor-widget elementor-widget-text-editor" data-id="1e475b5" data-element_type="widget" data-widget_type="text-editor.default" >
-                                    <div className="elementor-widget-container" >
-                                      Manage, trade, stake, and grow your crypto portfolio all in one secure and intuitive platform. Explore the future of finance with confidence.
+                              <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-d32966a animated fadeIn" data-id="d32966a" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;}">
+                                <div className="elementor-widget-wrap elementor-element-populated">
+                                  <div className="elementor-element elementor-element-fad5859 elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-id="fad5859" data-element_type="widget" data-widget_type="text-editor.default">
+                                    <div className="elementor-widget-container">
+                                      {t("homePage.morePossibilities")}
                                     </div>
                                   </div>
-
+                                  <div className="elementor-element elementor-element-49f092c elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="49f092c" data-element_type="widget" data-widget_type="text-editor.default">
+                                    <div className="elementor-widget-container">
+                                      {t("homePage.stakeSwapTrade")}
+                                    </div>
+                                  </div>
+                                  <div className="elementor-element elementor-element-1e475b5 elementor-widget elementor-widget-text-editor" data-id="1e475b5" data-element_type="widget" data-widget_type="text-editor.default">
+                                    <div className="elementor-widget-container">
+                                      {t("homePage.manageTradeGrow")}
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </section>
                           <section className="elementor-section elementor-inner-section elementor-element elementor-element-78582c5 elementor-reverse-tablet elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="78582c5" data-element_type="section">
-                            <div className="elementor-container elementor-column-gap-default" >
-                              <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-6a64521 animated fadeIn" data-id="6a64521" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_delay&quot;:200}" >
-                                <div className="elementor-widget-wrap elementor-element-populated" >
-                                  <div className="elementor-element elementor-element-5d8c7ca elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-id="5d8c7ca" data-element_type="widget" data-widget_type="text-editor.default" >
-                                    <div className="elementor-widget-container" >
-                                      WMulti-Token Support </div>
-                                  </div>
-                                  <div className="elementor-element elementor-element-b44c8e9 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="b44c8e9" data-element_type="widget" data-widget_type="text-editor.default" >
-                                    <div className="elementor-widget-container" >
-                                      Effortlessly store a wide range of cryptocurrencies </div>
-                                  </div>
-                                  <div className="elementor-element elementor-element-1130466 elementor-widget elementor-widget-text-editor" data-id={1130466} data-element_type="widget" data-widget_type="text-editor.default" >
-                                    <div className="elementor-widget-container" >
-                                      Whether you're managing Bitcoin, Ethereum,
-                                      or altcoins, we provide seamless compatibility for your diverse digital assets.
+                            <div className="elementor-container elementor-column-gap-default">
+                              <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-6a64521 animated fadeIn" data-id="6a64521" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_delay&quot;:200}">
+                                <div className="elementor-widget-wrap elementor-element-populated">
+                                  <div className="elementor-element elementor-element-5d8c7ca elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-id="5d8c7ca" data-element_type="widget" data-widget_type="text-editor.default">
+                                    <div className="elementor-widget-container">
+                                      {t("homePage.multiTokenSupport")}
                                     </div>
                                   </div>
-
+                                  <div className="elementor-element elementor-element-b44c8e9 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="b44c8e9" data-element_type="widget" data-widget_type="text-editor.default">
+                                    <div className="elementor-widget-container">
+                                      {t("homePage.effortlessStorage")}
+                                    </div>
+                                  </div>
+                                  <div className="elementor-element elementor-element-1130466 elementor-widget elementor-widget-text-editor" data-id="1130466" data-element_type="widget" data-widget_type="text-editor.default">
+                                    <div className="elementor-widget-container">
+                                      {t("homePage.bitcoinEthereumAltcoins")}
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
-                              <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-191c4f9 animated fadeIn" data-id="191c4f9" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;background_background&quot;:&quot;classic&quot;}" >
-                                <div className="elementor-widget-wrap elementor-element-populated" >
-                                  <div className="elementor-element elementor-element-745fb57 elementor-widget elementor-widget-image" data-id="745fb57" data-element_type="widget" data-widget_type="image.default" >
-                                    <div className="elementor-widget-container" >
-                                      <img loading="lazy" decoding="async" width={1024} height={797} src="https://toka.peerduck.com/wp-content/uploads/2022/11/t8gbhtg-1024x797.png" className="attachment-large size-large wp-image-23507" alt srcSet="https://toka.peerduck.com/wp-content/uploads/2022/11/t8gbhtg-1024x797.png 1024w, https://toka.peerduck.com/wp-content/uploads/2022/11/t8gbhtg-300x233.png 300w, https://toka.peerduck.com/wp-content/uploads/2022/11/t8gbhtg-768x598.png 768w, https://toka.peerduck.com/wp-content/uploads/2022/11/t8gbhtg-1536x1195.png 1536w, https://toka.peerduck.com/wp-content/uploads/2022/11/t8gbhtg-2048x1594.png 2048w, https://toka.peerduck.com/wp-content/uploads/2022/11/t8gbhtg-600x467.png 600w" sizes="(max-width: 1024px) 100vw, 1024px" />
+                              <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-191c4f9 animated fadeIn" data-id="191c4f9" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+                                <div className="elementor-widget-wrap elementor-element-populated">
+                                  <div className="elementor-element elementor-element-745fb57 elementor-widget elementor-widget-image" data-id="745fb57" data-element_type="widget" data-widget_type="image.default">
+                                    <div className="elementor-widget-container">
+                                      <img loading="lazy" decoding="async" width={1024} height={797} src="https://toka.peerduck.com/wp-content/uploads/2022/11/t8gbhtg-1024x797.png" className="attachment-large size-large wp-image-23507" alt="" />
                                     </div>
                                   </div>
                                 </div>
@@ -522,6 +620,7 @@ const Home = () => {
                       </div>
                     </div>
                   </section>
+
                   <section className="elementor-section elementor-top-section elementor-element elementor-element-9ed58fe elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9ed58fe" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                     <div className="elementor-background-overlay" />
                     <div className="elementor-container elementor-column-gap-default" >
@@ -533,65 +632,46 @@ const Home = () => {
                                 <div className="elementor-widget-wrap elementor-element-populated" >
                                   <div className="elementor-element elementor-element-57d7e81 elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-id="57d7e81" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      FAQ </div>
+                                      {t("homePage.faq")}
+                                    </div>
                                   </div>
                                   <div className="elementor-element elementor-element-bac89af elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="bac89af" data-element_type="widget" data-widget_type="heading.default" >
                                     <div className="elementor-widget-container" >
                                       <h2 className="elementor-heading-title elementor-size-default">
-                                        Frequently asked questions
+                                        {t("homePage.frequentlyAskedQuestions")}
                                       </h2>
                                     </div>
                                   </div>
                                   <div className="elementor-element elementor-element-101d19f elementor-widget elementor-widget-text-editor" data-id="101d19f" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      Check Out Our FAQ for All the Information You Need to Get Started.</div>
+                                      {t("homePage.checkOutOurFAQ")}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </section>
+
                           <section className="elementor-section elementor-inner-section elementor-element elementor-element-2c660bf elementor-section-boxed elementor-section-height-default elementor-section-height-default animated fadeIn" data-id="2c660bf" data-element_type="section" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_delay&quot;:100}">
                             <div className="elementor-container elementor-column-gap-default" >
                               <div className="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-d8fc851" data-id="d8fc851" data-element_type="column" >
                                 <div className="elementor-widget-wrap elementor-element-populated" >
                                   <div className="elementor-element elementor-element-615039f elementor-widget elementor-widget-toggle" data-id="615039f" data-element_type="widget" data-widget_type="toggle.default" >
                                     <div className="elementor-widget-container" >
-                                      <style dangerouslySetInnerHTML={{ __html: "\n                                                                    /*! elementor - v3.21.0 - 24-04-2024 */\n                                                                    .elementor-toggle {\n                                                                        text-align: start\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title {\n                                                                        font-weight: 700;\n                                                                        line-height: 1;\n                                                                        margin: 0;\n                                                                        padding: 15px;\n                                                                        border-bottom: 1px solid #d5d8dc;\n                                                                        cursor: pointer;\n                                                                        outline: none\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title .elementor-toggle-icon {\n                                                                        display: inline-block;\n                                                                        width: 1em\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title .elementor-toggle-icon svg {\n                                                                        margin-inline-start: -5px;\n                                                                        width: 1em;\n                                                                        height: 1em\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title .elementor-toggle-icon.elementor-toggle-icon-right {\n                                                                        float: right;\n                                                                        text-align: right\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title .elementor-toggle-icon.elementor-toggle-icon-left {\n                                                                        float: left;\n                                                                        text-align: left\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title .elementor-toggle-icon .elementor-toggle-icon-closed {\n                                                                        display: block\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title .elementor-toggle-icon .elementor-toggle-icon-opened {\n                                                                        display: none\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title.elementor-active {\n                                                                        border-bottom: none\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title.elementor-active .elementor-toggle-icon-closed {\n                                                                        display: none\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-title.elementor-active .elementor-toggle-icon-opened {\n                                                                        display: block\n                                                                    }\n\n                                                                    .elementor-toggle .elementor-tab-content {\n                                                                        padding: 15px;\n                                                                        border-bottom: 1px solid #d5d8dc;\n                                                                        display: none\n                                                                    }\n\n                                                                    @media (max-width:767px) {\n                                                                        .elementor-toggle .elementor-tab-title {\n                                                                            padding: 12px\n                                                                        }\n\n                                                                        .elementor-toggle .elementor-tab-content {\n                                                                            padding: 12px 10px\n                                                                        }\n                                                                    }\n\n                                                                    .e-con-inner>.elementor-widget-toggle,\n                                                                    .e-con>.elementor-widget-toggle {\n                                                                        width: var(--container-widget-width);\n                                                                        --flex-grow: var(--container-widget-flex-grow)\n                                                                    }\n                                                                " }} />
                                       <div className="elementor-toggle">
                                         {faqData.map((item) => (
-                                          <div
-                                            className="elementor-toggle-item"
-                                            key={item.id}
-                                            onClick={() => toggleTab(item.id)}
-                                          >
-                                            <div
-                                              id={`elementor-tab-title-${item.id}`}
-                                              className="elementor-tab-title"
-                                              data-tab={item.id}
-                                              role="button"
-                                              aria-controls={`elementor-tab-content-${item.id}`}
-                                              aria-expanded={activeTab === item.id}
-                                            >
+                                          <div className="elementor-toggle-item" key={item.id} onClick={() => toggleTab(item.id)}>
+                                            <div id={`elementor-tab-title-${item.id}`} className="elementor-tab-title" data-tab={item.id} role="button" aria-controls={`elementor-tab-content-${item.id}`} aria-expanded={activeTab === item.id}>
                                               <span className="elementor-toggle-icon elementor-toggle-icon-right" aria-hidden="true">
                                                 <span className={`elementor-toggle-icon-closed ${activeTab === item.id ? "rotatef" : "rotateaf"}`}>
                                                   <i className="fas fa-chevron-down" />
                                                 </span>
-                                                {/* <span className={`elementor-toggle-icon-opened ${activeTab === item.id ? "" : "hidden"}`}>
-                                                  <i className="fas fa-chevron-up" />
-                                                </span> */}
                                               </span>
                                               <a className="elementor-toggle-title" tabIndex={0}>
                                                 {item.question}
                                               </a>
                                             </div>
-                                            <div
-                                              id={`elementor-tab-content-${item.id}`}
-                                              className={`elementor-tab-content elementor-clearfix ${activeTab === item.id ? "dblock" : "hidden"
-                                                }`}
-                                              data-tab={item.id}
-                                              role="region"
-                                              aria-labelledby={`elementor-tab-title-${item.id}`}
-                                            >
+                                            <div id={`elementor-tab-content-${item.id}`} className={`elementor-tab-content elementor-clearfix ${activeTab === item.id ? "dblock" : "hidden"}`} data-tab={item.id} role="region" aria-labelledby={`elementor-tab-title-${item.id}`}>
                                               {item.answer}
                                             </div>
                                           </div>
@@ -603,6 +683,7 @@ const Home = () => {
                               </div>
                             </div>
                           </section>
+
                           <section className="elementor-section elementor-inner-section elementor-element elementor-element-f0db96b elementor-section-boxed elementor-section-height-default elementor-section-height-default animated fadeIn" data-id="f0db96b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;,&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_delay&quot;:150}">
                             <div className="elementor-background-overlay" />
                             <div className="elementor-container elementor-column-gap-default" >
@@ -610,22 +691,20 @@ const Home = () => {
                                 <div className="elementor-widget-wrap elementor-element-populated" >
                                   <div className="elementor-element elementor-element-774b677 elementor-widget elementor-widget-text-editor" data-id="774b677" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      Ready to Take Control of Your Crypto?
+                                      {t("homePage.readyToTakeControl")}
                                     </div>
                                   </div>
                                   <div className="elementor-element elementor-element-9db2b7c elementor-widget elementor-widget-text-editor" data-id="9db2b7c" data-element_type="widget" data-widget_type="text-editor.default" >
                                     <div className="elementor-widget-container" >
-                                      The Toka Wallet lets you store your private keys on your
-                                      card while maintaining easy access to them. </div>
-                                  </div>Sign up for FortiVault Wallet today and start managing, securing, and growing your digital assets with confidence. Experience seamless transactions, top-notch security, and a wide range of features designed to help you succeed in the world of cryptocurrency. Take action now and unlock the future of finance!
-
+                                      {t("homePage.tokaWalletDescription")}
+                                    </div>
+                                  </div>
                                   <div className="elementor-element elementor-element-c92040a elementor-tablet-align-center elementor-align-center elementor-widget elementor-widget-button" data-id="c92040a" data-element_type="widget" data-widget_type="button.default" >
                                     <div className="elementor-widget-container" >
                                       <div className="elementor-button-wrapper" >
                                         <Link className="elementor-button elementor-button-link elementor-size-xl elementor-animation-float" to="/auth/signup" >
                                           <span className="elementor-button-content-wrapper">
-                                            <span className="elementor-button-text">Start
-                                              now</span>
+                                            <span className="elementor-button-text">{t("homePage.startNow")}</span>
                                           </span>
                                         </Link>
                                       </div>
@@ -639,6 +718,7 @@ const Home = () => {
                       </div>
                     </div>
                   </section>
+
                 </div>
               </div>{/* .entry-content */}
             </div>{/* .post-inner */}
@@ -664,7 +744,7 @@ const Home = () => {
                   <div className="ft-col-2 col-sm-12 col-lg-4" >
                     <div className="widget widget_text" >
                       <div className="widget-content" >
-                        <h4 className="widget-title">Contact Us</h4>
+                        <h4 className="widget-title">{t("homePage.contactUs")}</h4>
                         <div className="textwidget" >
                           <p>202 Helga Springs Rd, Crawford, TN 38554</p>
                           <p><a href="mailto:support@fortivault.io" >support@fortivault.io</a></p>
@@ -686,7 +766,6 @@ const Home = () => {
           </div>
         </footer>{/* #site-footer */}
       </div>
-
 
     </div>
 

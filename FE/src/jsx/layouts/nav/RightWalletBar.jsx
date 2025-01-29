@@ -31,6 +31,7 @@ import { useAuthUser, useSignOut } from "react-auth-kit";
 import { logoutApi, getsignUserApi, getCoinsUserApi } from "../../../Api/Service";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { useTranslation } from 'react-i18next';
 const OrderTableData = [
     { price: '82.3', amount: '0.15', total: '134.12' },
     { price: '83.6', amount: '0.18', total: '237.31' },
@@ -337,6 +338,7 @@ const RightWalletBar = () => {
     };
 
     console.log(Admin._id);
+    const { t } = useTranslation()
     return (
         <div>
             {UserTransactions ?
@@ -348,7 +350,7 @@ const RightWalletBar = () => {
                         <div className="wallet-card">
                             <div className="wallet-wrapper">
                                 <div className="mb-3">
-                                    <h5 className="fs-14 font-w400 mb-0">My Portfolio</h5>
+                                    <h5 className="fs-14 font-w400 mb-0"> {t("header.myPortfolio")}</h5>
                                     <h4 className="fs-24 font-w600">{totalBalance === null ? "..." : totalBalance === 0 ? 0 : `${totalBalance}`}</h4>
 
                                 </div>
@@ -365,7 +367,8 @@ const RightWalletBar = () => {
                                     onClick={() => setPaymentModal(true)}
                                 >
                                     {SVGICON.WithdrawSvgIcon}
-                                    withdrawal
+
+                                    {t("header.withdrawal")}
                                 </Link>
                             </div>
                         </div>
@@ -373,14 +376,15 @@ const RightWalletBar = () => {
                             <div className="card price-list-1 mb-0">
                                 <div className="card-header border-0 pb-2 px-3">
                                     <div>
-                                        <h4 className="text-primary card-title mb-2">Transactions</h4>
+                                        <h4 className="text-primary card-title mb-2">{t("header.transactions")}</h4>
                                     </div>
                                     {/* <DropdownBlog /> */} <Link
 
                                         to={`/Transactions/${Admin._id}`}
                                         className="  sasa rounded-lg px-4 py-2 font-sans text-sm font-medium underline-offset-4 transition-colors duration-300 hover:underline"
                                     >
-                                        View All{" "}
+                                        {" "}
+                                        {t("header.viewAll")}
                                     </Link>
                                 </div>
                                 <div className="card-body p-3 py-0">
@@ -389,9 +393,9 @@ const RightWalletBar = () => {
                                         <table className="table text-center bg-primary-hover tr-rounded order-tbl mt-2 ">
                                             <thead>
                                                 <tr>
-                                                    <th className="text-start">Coin</th>
-                                                    <th className="text-center">Type</th>
-                                                    <th className="text-end">Amount</th>
+                                                    <th className="text-start">{t("header.coin")}</th>
+                                                    <th className="text-center">{t("header.type")}</th>
+                                                    <th className="text-end">{t("header.amount")}</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -467,7 +471,7 @@ const RightWalletBar = () => {
                                                             </tr>
                                                         ))}
                                                     </>
-                                                ) : <h5 className='text-center d-flex items-center' style={{ textAlign: "center" }}>No Transaction Found</h5>}
+                                                ) : <h5 className='text-center d-flex items-center' style={{ textAlign: "center" }}>{t("header.noTransaction")}</h5>}
 
 
                                             </tbody>
@@ -480,14 +484,14 @@ const RightWalletBar = () => {
                                 <div className="card price-list style-2 border-top border-style">
                                     <div className="card-header border-0 pb-2 px-3">
                                         <div>
-                                            <h4 className="text-pink mb-0 card-title">My Wallets</h4>
+                                            <h4 className="text-pink mb-0 card-title">{t("header.myWallets")}</h4>
                                         </div>
                                         {/* <DropdownBlog color="btn-pink" /> */}
                                         {/* <DropdownBlog /> */} <Link
                                             to={`/assets`}
                                             className="  sasa rounded-lg px-4 py-2 font-sans text-sm font-medium underline-offset-4 transition-colors duration-300 hover:underline"
                                         >
-                                            Wallets
+                                            {t("header.wallets")}
                                         </Link>
                                     </div>
 

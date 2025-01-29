@@ -29,6 +29,7 @@ import { useAuthUser, useSignOut } from 'react-auth-kit';
 import { toast } from 'react-toastify';
 import { getCoinsUserApi, getsignUserApi } from '../../../Api/Service';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 const coinLogos = {
 	euro: eurIco, // Replace with actual local path
@@ -328,33 +329,38 @@ export function MainComponent() {
 			return;
 		}
 	}, []);
+	const { t } = useTranslation()
 	return (
 		<Row>
 			<Col xl={12}>
 				<div className="row main-card">
 					<MainSlider />
 				</div>
-				{isUser.submitDoc && isUser.submitDoc.status === "pending" ? (<Row className="my-4">
-					<Col xl={12}>
-						<div className="card kyc-form-card">
-							<div className="card-header">
-								<h4 className="card-title">Verify Your Identity for Enhanced Security</h4>
+				{isUser.submitDoc && isUser.submitDoc.status === "pending" ? (
+					<Row className="my-4">
+						<Col xl={12}>
+							<div className="card kyc-form-card">
+								<div className="card-header">
+									<h4 className="card-title">{t("dashboardPage.verifyIdentity")}</h4>
+								</div>
+								<div className="card-body">
+									<p>{t("dashboardPage.securityMessage1")}</p>
+									<p>{t("dashboardPage.securityMessage2")}</p>
+									<p>{t("dashboardPage.securityMessage3")}</p>
+									<Alert variant="warning" dismissible className="solid alert-right-icon">
+										<span><i className='mdi mdi-alert'></i></span>{" "}
+										{t("dashboardPage.verifyIdentityAlert")}
+									</Alert>
+									<Link to="/flows/kyc">
+										<Button to="/flows/kyc" variant="primary" className="mt-3">
+											{t("dashboardPage.startKYC")}
+										</Button>
+									</Link>
+								</div>
 							</div>
-							<div className="card-body">
-								<p>We prioritize the safety and security of our platform to ensure a seamless experience for all users.</p>
-								<p>Completing the KYC process is an essential step in maintaining a secure environment and complying with regulatory standards.</p>
-								<p>To activate your wallet, please complete the identification process.</p>
-								<Alert variant="warning" dismissible className="solid alert-right-icon">
-									<span><i className='mdi mdi-alert'></i></span>{" "}
-									Please verify your identity
-								</Alert>
-								<Link to="/flows/kyc"><Button to="/flows/kyc" variant="primary" className="mt-3"  >
-									Start KYC
-								</Button></Link>
-							</div>
-						</div>
-					</Col>
-				</Row>) : ""}
+						</Col>
+					</Row>
+				) : ""}
 
 				<Row>
 					<div className="col-xl-12">
@@ -362,14 +368,15 @@ export function MainComponent() {
 						<div className="card price-list style-2 border-top border-style">
 							<div className="card-header border-0 pb-2 px-3">
 								<div>
-									<h4 className="text-pink mb-0 card-title">My Wallets</h4>
+									<h4 className="text-pink mb-0 card-title">{t("header.myWallets")}</h4>
 								</div>
 								{/* <DropdownBlog color="btn-pink" /> */}
 								{/* <DropdownBlog /> */} <Link
 									to={`/assets`}
 									className="  sasa rounded-lg px-4 py-2 font-sans text-sm font-medium underline-offset-4 transition-colors duration-300 hover:underline"
 								>
-									Wallets
+									{t("header.wallets")}
+
 								</Link>
 							</div>
 							{UserData ?
@@ -639,7 +646,7 @@ export function MainComponent() {
 									</div>
 								</div>
 
-								: <p className='card-body p-3 py-4'>No wallet found</p>}
+								: <p className='card-body p-3 py-4'>{t("dashboardPage.noWallet")}</p>}
 						</div>
 					</div>
 					{/* <div className="col-xl-6">

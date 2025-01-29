@@ -84,8 +84,11 @@ import "./assets/css/stylemain.css";
 import React from 'react';
 import Router from './config/router';
 // import Login from './jsx/pages/authentication/Login';
-
+import './i18n'
+import { useTranslation } from 'react-i18next';
 const App = () => {
+
+    const { t, i18n } = useTranslation();
     return (
         <div>
             <Router />

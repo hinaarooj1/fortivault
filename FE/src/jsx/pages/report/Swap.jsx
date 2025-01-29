@@ -11,7 +11,9 @@ import axios from 'axios';
 import { Button, Card, Col, DropdownDivider, InputGroup, Modal, Row, Spinner, Form } from 'react-bootstrap';
 import './style.css'
 import Truncate from 'react-truncate-inside/es';
+import { useTranslation } from 'react-i18next';
 const Swap = () => {
+    const { t } = useTranslation()
     const [Active, setActive] = useState(false);
     let toggleBar = () => {
         if (Active === true) {
@@ -31,7 +33,7 @@ const Swap = () => {
     const [offers, setoffers] = useState(false);
 
     const [selectedCurrency, setSelectedCurrency] = useState("USDT");
-    const [placeholder, setplaceholder] = useState("You will receive");
+    const [placeholder, setplaceholder] = useState(t("swapPage.youReceive"));
     const [ethBalance, setethBalance] = useState(0);
     const [usdtBalance, setusdtBalance] = useState(0);
 
@@ -266,7 +268,7 @@ const Swap = () => {
 
                 setSelectedToCurrencyInput(convertedValue.toFixed(8));
                 setLoadingSecondInput(false);
-                setplaceholder("You will receive");
+                setplaceholder(t("swapPage.youReceive"));
                 setisDisable(false);
                 if (isNaN(value) || value == 0 || value < 0 || value == "") {
                     setisDisable(true);
@@ -302,7 +304,7 @@ const Swap = () => {
         setInputValue("");
         setisDisable(true);
         setSelectedToCurrencyInput("");
-        setplaceholder("You will receive");
+        setplaceholder(t("swapPage.youReceive"));
     };
 
     const updateExpectedRate = (fromCurrency, toCurrency) => {
@@ -412,7 +414,7 @@ const Swap = () => {
                 inputValue === "" ||
                 inputValue === null
             ) {
-                toast.error("Amount cannot be less than or equal to zero");
+                toast.error(t("swapPage.amountNot"));
                 return;
             }
 
@@ -450,7 +452,7 @@ const Swap = () => {
             } else {
                 console.log("neemdone");
 
-                toast.error("One or both transactions failed.");
+                toast.error(t("swapPage.failed"));
             }
         } catch (error) {
             console.log("notdone", error);
@@ -469,14 +471,14 @@ const Swap = () => {
                 <div className="col-xxl-12">
                     <div className="card">
                         <Card.Header>
-                            <Card.Title>Convert</Card.Title>
+                            <Card.Title>{t("swapPage.convert")}</Card.Title>
                         </Card.Header>
                         <div className="card-body">
                             <Form className={`currency_validate trade-form ${isDarkMode ? "text-light" : ""}`}>
                                 <Row className="g-3">
                                     <Col xs={12}>
                                         <Form.Group controlId="fromCurrency">
-                                            <Form.Label>From</Form.Label>
+                                            <Form.Label>{t("swapPage.from")}</Form.Label>
                                             <InputGroup>
                                                 <Form.Select
                                                     onChange={(e) => handleCurrencyChange(e, "from")}
@@ -489,14 +491,14 @@ const Swap = () => {
                                                 </Form.Select>
                                                 <Form.Control
                                                     type="text"
-                                                    placeholder="Enter amount to convert"
+                                                    placeholder={t("swapPage.enterAmount")}
                                                     value={inputValue}
                                                     onChange={handleInputChange}
                                                     className={isDarkMode ? "bg-dark text-light" : ""}
                                                 />
                                             </InputGroup>
                                             <p className="mt-2">
-                                                Available Balance:{" "}
+                                                {t("swapPage.availableBalance")}:{" "}
                                                 {selectedFromCurrency === "BTC"
                                                     ? btcBalance
                                                     : selectedFromCurrency === "USDT"
@@ -509,7 +511,7 @@ const Swap = () => {
 
                                     <Col xs={12}>
                                         <Form.Group controlId="toCurrency">
-                                            <Form.Label>To</Form.Label>
+                                            <Form.Label>{t("swapPage.to")}</Form.Label>
                                             <InputGroup>
                                                 <Form.Select
                                                     onChange={(e) => handleCurrencyChange(e, "to")}
@@ -542,10 +544,10 @@ const Swap = () => {
                                     </Col>
 
                                     <p className="mb-2 mt-2">
-                                        Expected rate: 1 {selectedFromCurrency} ~ {ExpectedRate}{" "}
+                                        {t("swapPage.expectedRate")}: 1 {selectedFromCurrency} ~ {ExpectedRate}{" "}
                                         {selectedToCurrency}
                                         <br />
-                                        No extra fees
+                                        {t("swapPage.noExtraFees")}
                                     </p>
 
                                     <Button
@@ -554,7 +556,7 @@ const Swap = () => {
                                         variant="success"
                                         block
                                     >
-                                        Convert Now
+                                        {t("swapPage.convertNow")}
                                     </Button>
                                 </Row>
                             </Form>
@@ -562,6 +564,7 @@ const Swap = () => {
                     </div>
                 </div>
             </div>
+
             {/* {modal3 &&
 
                 <Modal className="fade modal89"
