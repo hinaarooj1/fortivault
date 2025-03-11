@@ -970,6 +970,10 @@ img.emoji {
         flex-grow: 0;
     }
 
+    .nnmmn {
+        display: none !important;
+    }
+
     .homepaag .top-wrap {
         width: max-content !important;
     }

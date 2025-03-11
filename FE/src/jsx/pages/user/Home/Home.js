@@ -160,6 +160,9 @@ const Home = () => {
                   </div>
                 )}
               </div>
+              <div className="header-cta nnmmn" ><a target="_blank" href="https://drive.google.com/file/d/1yWZRBbKgCrJ6YRF7viWYzBeNUf9zqPbw/view?usp=sharing"  >
+                <div className="d-inline-block elementor-button-link elementor-button elementor-size-md" >Download Windows App</div>
+              </a></div>
               <div className="header-cta" ><Link to="/auth/login"  >
                 <div className="d-inline-block elementor-button-link elementor-button elementor-size-md" >{t("homePage.signin")} </div>
               </Link></div>
